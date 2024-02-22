@@ -1,51 +1,119 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='El porfolio de Guifré Puig' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  @font-face {
+    font-family: "Onest";
+    src: url(../../public/fonts/Onest.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "NunitoSans";
+    src: url(../../public/fonts/NunitoSans-Regular.ttf) format("truetype");
+  }
+
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+    /* color PALETTE */
+    --color-blue: #0b0d3f;
+    --color-yellow: #e6c339;
+    --color-brown: #a69553;
+    --color-gray: #66614d;
+    --color-purple: #545791;
+
+    --backgroundGradient: linear-gradient(0deg, rgba(3, 4, 41, 1) 0%, rgba(11, 13, 63, 1) 49%, rgba(7, 11, 92, 1) 100%);
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    background-size: 224px;
+    scroll-behavior: smooth;
+  }
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--backgroundGradient);
+    color: var(--white);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Onest", sans-serif;
+    line-height: 150%;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 5vw, 2rem);
+    color: var(--color-yellow);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  h5 {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+  }
+
+  p {
+    font-family: "NunitoSans", sans-serif;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    line-height: 150%;
+    letter-spacing: 0.04ch;
+    /* text-wrap: balance; */
+  }
+
+  li {
+    font-family: "NunitoSans", sans-serif;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    line-height: 150%;
+    letter-spacing: 0.04ch;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: "NunitoSans", sans-serif;
+    font-size: 0.875rem;
+  }
 </style>
