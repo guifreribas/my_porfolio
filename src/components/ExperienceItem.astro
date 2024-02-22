@@ -1,0 +1,161 @@
+---
+const experiencies = [
+    {
+        title: "Brothapps",
+        date: "(Febrero 2024 - octubre 2021)",
+        description: "Empresa de diseño y desarrollo de productos y soluciones digitales.",
+        tasks: [
+        "Participé en el equipo de creación y desarrollo del front-end de una web app de inicio a fin ayudando a su desarrollo y su mejora en sus iteraciones con Next.js.",
+        "Desarrollo y mantenimiento de diferentes interfaces de administración de productos digitales.",
+        "Integración de servicios de tercero en el front-end en diferentes proyectos de web apps así como Firebase Realtime DB, Firestone o Stripe entre otros.",
+        "Refactorización de código ya existente para hacerlo más escalable, mantenible y óptimo en rendimiento y legibilidad.",
+        "Desarrollo de landing pages con el framework Astro, aplicando buenas prácticas y metodología BEM.",
+        ],
+    },
+    {
+        title: "Focus",
+        date: "(Junio 2021 - junio 2018)",
+        description: "Empresa de servicios técnicos audiovisuales y productora de teatro.",
+        tasks: [
+        "Responsable del servicio técnico audiovisual del CaixaForum Barcelona",
+        "Encargado de la gestión del personal técnico y de la coordinación de los eventos y actividades del espacio.",
+        "Responsable de la comunicación con el cliente y de la resolución de sus necesidades técnicas.",
+        "Realización de los presupuestos y de la gestión de los recursos materiales y humanos.",
+        ],
+    },
+]
+---
+
+<section>
+  <div>
+    {experiencies.map(
+      (experiencie) =>
+        <article>
+          <div></div>
+          <div>
+            <div></div>
+          </div>
+
+          <section>
+            <div>
+              <section>
+                <h4>{experiencie.title}</h4>
+                <p>{experiencie.date}</p>
+              </section>
+              <p>{experiencie.description}</p>
+            </div>
+
+            <ul>
+              {experiencie.tasks.map(
+                (task) =>
+                  <li>{task}</li>
+              )}
+            </ul>
+          </section>
+        </article>
+    )}
+  </div>
+
+
+<style>
+  article {
+    /* margin: 32px 0; */
+    padding: 32px 16px;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    position: relative;
+
+    > div:first-child {
+      width: 16px;
+      height: 100px;
+    }
+
+    > div:nth-child(2) {
+      height: 100%;
+      width: 1px;
+      background-color: var(--color-brown);
+      position: absolute;
+      left: 23px;
+
+      > div {
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: var(--color-brown);
+        border: 3px solid var(--color-blue);
+        position: absolute;
+        top: 42px;
+        left: -7px;
+      }
+    }
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px 48px;
+
+    > div:first-child {
+      /* max-width: 260px; */
+      flex: 1 -1 260px;
+      margin-bottom: 8px;
+
+      > section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 16px;
+        padding: 0;
+
+        h4 {
+          color: var(--color-brown);
+          width: fit-content;
+        }
+
+        p {
+          display: block;
+          align-self: flex-end;
+          width: fit-content;
+          font-size: 0.75rem;
+          font-weight: 100;
+          padding-block: 4px;
+          opacity: 0.8;
+          font-style: italic;
+        }
+      }
+
+      > p {
+        font-size: 0.875rem;
+        font-weight: 100;
+        padding-block: 4px;
+      }
+    }
+
+    > div:nth-child(2) {
+      p {
+      }
+    }
+
+    ul {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0 8px;
+    }
+
+    li {
+      list-style: square;
+      position: relative;
+    }
+
+    /* li:before {
+      content: "•";
+      color: var(--color-brown);
+      /* position: absolute;
+      left: -1rem; */
+    } */
+  }
+</style>
