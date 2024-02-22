@@ -1,0 +1,45 @@
+<article>
+  <h2>Tecnologías</h2>
+  <section>
+    <img src='./logos/react.svg' alt='' />
+    <img src='./logos/nextjs.svg' alt='' />
+    <div>
+      <img src='./logos/astro.png' alt='' />
+    </div>
+    <img src='./logos/javascript.webp' alt='' />
+    <img src='./logos/typescript.svg' alt='' />
+    <img src='./logos/css.svg' alt='' />
+    <img src='./logos/html.svg' alt='' />
+  </section>
+</article>
+
+<style>
+  article {
+    margin: 32px auto;
+    padding: 16px;
+  }
+
+  section {
+    margin: 32px auto;
+    padding: 32px;
+    backdrop-filter: blur(80px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 16px;
+    place-items: center;
+  }
+
+  img {
+    max-width: 80px;
+    aspect-ratio: 1/1;
+  }
+
+  div {
+    max-width: 80px;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    background-color: white;
+    border-radius: 4px;
+  }
+</style>
