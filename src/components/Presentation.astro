@@ -1,0 +1,73 @@
+<article>
+  <section>
+    <div>
+      <h1>GUIFRÉ PUIG RIBAS</h1>
+      <h3>Desarrollador frontend</h3>
+      <p>
+        Profesional del <span>desarrollo frontend</span> con una sólida <span>experiencia desde el año 2021</span> en la creación de interfaces web atractivas y
+        funcionales. Mi experiencia incluye el uso de tecnologías clave como <span>JavaScript, HTML y CSS</span>, así como el empleo de frameworks modernos como <span
+          >React y Next.js</span
+        >.
+      </p>
+    </div>
+    <a href='mailto:guifreribas@gmail.com'>
+      <img src='./images/gf_photo_cutted.webp' alt='Foto de Guifré Puig' />
+    </a>
+  </section>
+</article>
+
+<style>
+  article {
+    padding: 16px;
+    margin: 128px auto;
+    max-width: 800px;
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 32px;
+  }
+
+  div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    /* max-width: 600px; */
+    flex: 11 -1 500px;
+    width: fit-content;
+    /* gap: 8px; */
+  }
+
+  img {
+    flex-grow: 1;
+    border-radius: 24px;
+    max-width: 200px;
+    flex: 1 0 200px;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    /* display: block; */
+    object-fit: cover;
+    box-shadow: 1px 1px 4px 2px var(--color-yellow);
+  }
+  img:hover {
+    cursor: pointer;
+    box-shadow: none;
+  }
+
+  h3 {
+    font-weight: 500;
+    color: var(--color-yellow);
+    padding-block: 8px;
+  }
+
+  p {
+    max-width: 60ch;
+  }
+
+  span {
+    color: var(--color-brown);
+  }
+</style>
