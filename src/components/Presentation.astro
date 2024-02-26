@@ -9,9 +9,20 @@
           >React y Next.js</span
         >.
       </p>
+      <div>
+        <a href='https://www.guifre.dev/' target='_blank'>
+          <img src='./icons/linkedin.svg' alt='Icono de LinkedIn' />
+        </a>
+        <a href='https://github.com/guifreribas/' target='_blank'>
+          <img src='./icons/github.svg' alt='Icono de Github' />
+        </a>
+        <a href='/documents/guifre_puig_cv.pdf' target='_blank'>
+          <img src='./icons/cv.svg' alt='Icono currículum vitae' />
+        </a>
+      </div>
     </div>
     <a href='mailto:guifreribas@gmail.com'>
-      <img src='./images/gf_photo_cutted.webp' alt='Foto de Guifré Puig' />
+      <img src='./images/gf_photo_cutted.webp' alt='Foto de Guifré Puig' width='200px' aspect-ratio='2025 /1836' />
     </a>
   </section>
 </article>
@@ -19,40 +30,66 @@
 <style>
   article {
     padding: 16px;
-    margin: 128px auto;
+    margin: 128px auto 64px;
     max-width: 900px;
-  }
-  section {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 32px;
+    > section {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 32px;
+      > div {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        flex: 11 -1 450px;
+        width: fit-content;
+        > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+          margin-top: 8px;
+          > a {
+            padding-block: 8px;
+            display: flex;
+            align-items: center;
+            > img {
+              width: 24px;
+              aspect-ratio: 1/1;
+              transition: scale 0.1s ease-in;
+            }
+            > img:hover {
+              cursor: pointer;
+              scale: 1.3;
+            }
+          }
+        }
+      }
+    }
   }
 
-  div {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    flex: 11 -1 450px;
-    width: fit-content;
-  }
-
-  img {
-    flex-grow: 1;
-    border-radius: 24px;
-    max-width: 200px;
-    flex: 1 0 200px;
-    aspect-ratio: 1/1;
-    margin: 0 auto;
-    /* display: block; */
-    object-fit: cover;
-    box-shadow: 1px 1px 4px 2px var(--color-yellow);
-  }
-  img:hover {
-    cursor: pointer;
-    box-shadow: none;
+  article {
+    > section {
+      > a {
+        img {
+          flex-grow: 1;
+          border-radius: 24px;
+          max-width: 200px;
+          flex: 1 0 200px;
+          aspect-ratio: 1/1;
+          margin: 0 auto;
+          /* display: block; */
+          object-fit: cover;
+          box-shadow: 1px 1px 4px 2px var(--color-yellow);
+        }
+        img:hover {
+          cursor: pointer;
+          box-shadow: none;
+        }
+      }
+    }
   }
 
   h3 {
