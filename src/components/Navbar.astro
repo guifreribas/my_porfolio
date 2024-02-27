@@ -22,9 +22,10 @@
   ul {
     display: flex;
     gap: 64px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    max-width: 600px;
+    width: 100%;
+    max-width: fit-content;
     padding: 16px 64px;
     border-radius: 0 0 32px 32px;
     backdrop-filter: blur(20px);
@@ -32,11 +33,21 @@
 
   a {
     transition: color 0.3s ease-out;
+    text-wrap: nowrap;
   }
   a:hover {
     width: fit-content;
     height: fit-content;
     color: var(--color-yellow);
     cursor: pointer;
+  }
+
+  @media screen and (width < 600px) {
+    ul {
+      max-width: unset;
+      padding: 16px 32px;
+      justify-content: center;
+      gap: 32px;
+    }
   }
 </style>
