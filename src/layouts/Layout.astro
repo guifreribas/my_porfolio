@@ -3,9 +3,11 @@ import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
+  description: string;
+  ogDescription: string;
 }
 
-const { title } = Astro.props;
+const { title, description, ogDescription } = Astro.props;
 const { currentLocale } = Astro;
 ---
 
@@ -13,13 +15,25 @@ const { currentLocale } = Astro;
 <html lang={currentLocale}>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content='Guifré Puig - Desarrollador frontend de Barcelona, con experiencia laboral desde el 2021.' />
+    <meta name='description' content={description} />
+    <meta name='title' content='Guifré Puig' />
+
     <meta property='og:image' content='./images/gf_photo_cutted.webp' />
-    <meta property='og:description' content='Portfolio de Guifré Puig, desarrollador frontend de Barcelona con experiencia laboral desde el 2021.' />
-    <meta property='og:title' content='Guifré Puig - Desarrollador frontend' />
+    <meta property='og:description' content={ogDescription} />
+    <meta property='og:title' content='Guifré Puig - Desarrollador front end' />
+    <meta property='og:url' content='https://guifre.dev' />
+    <meta property='og:type' content='website' />
+    <meta property='og:locale' content='es_ES' />
+    <meta property='og:site_name' content='Guifré Puig' />
+
     <meta name='keywords' content='Guifré Puig, Frontend, Barcelona, Desarrollador, Web' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.webp' />
+    <link rel='canonical' href='https://guifre.dev' />
+
+    <meta name='robots' content='index, follow' />
+    <meta name='googlebot' content='index, follow' />
+
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
     <!-- <ViewTransitions /> -->
