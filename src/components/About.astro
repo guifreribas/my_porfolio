@@ -1,25 +1,22 @@
+---
+import { getI18N } from "../i18n/index";
+
+const { currentLocale } = Astro;
+const i = getI18N({ currentLocale });
+---
+
 <article>
   <div id='about'></div>
-  <h2>Sobre mí</h2>
+  <h2>{i.ABOUT_TITLE}</h2>
   <section>
     <p>
-      <span>Soy Guifré, nacido en 1982 en Barcelona</span>, donde resido actualmente. En el año <span
-        >2002, estudié un ciclo formativo de grado superior en Sistemas Informáticos</span
-      >. Sin embargo, en aquel momento, mi corazón estaba dividido entre la informática y la música, lo que me llevó a estudiar también un <span
-        >ciclo superior de Sonido</span
+      <span>{i.ABOUT_DESCRIPTION_1}</span>{i.ABOUT_DESCRIPTION_2}<span>{i.ABOUT_DESCRIPTION_3}</span>{i.ABOUT_DESCRIPTION_4}<span>{i.ABOUT_DESCRIPTION_5}</span
       >.
     </p>
+    <p>{i.ABOUT_DESCRIPTION_6}<span>{i.ABOUT_DESCRIPTION_7}</span>{i.ABOUT_DESCRIPTION_8}<span>{i.ABOUT_DESCRIPTION_9}</span>{i.ABOUT_DESCRIPTION_10}</p>
     <p>
-      Desde entonces, trabajé en la radio, teatros, conciertos y eventos, llegando a pasar a la producción de eventos y a <span
-        >dirigir equipos de personas</span
-      >, además de gestionar la <span>comunicación con los clientes</span>. Sin embargo, la pandemia trajo consigo una pausa obligada en esta trayectoria.
-    </p>
-    <p>
-      Fue entonces cuando percibí que había concluido una etapa profesional y decidí retomar mi otra pasión: la informática. En <span>2021</span>, tuve la
-      oportunidad de adentrarme en el <span>mundo profesional del desarrollo</span> de la mano de Brothapps, una empresa dedicada al desarrollo de aplicaciones informáticas.
-      Allí, he crecido profesionalmente y <span>
-        he participado en proyectos que utilizan la metodología Agile, coordinándome con otros miembros del equipo de frontend, así como con los equipos de
-        UI/UX y backend</span
+      {i.ABOUT_DESCRIPTION_11}<span>{i.ABOUT_DESCRIPTION_12}</span>{i.ABOUT_DESCRIPTION_13}<span>{i.ABOUT_DESCRIPTION_14}</span>{i.ABOUT_DESCRIPTION_15}<span
+        >{i.ABOUT_DESCRIPTION_16}</span
       >.
     </p>
   </section>
