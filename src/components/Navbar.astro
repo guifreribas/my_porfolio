@@ -1,11 +1,53 @@
+---
+import Selector from "./Selector.astro";
+import LanguageMenu from "./LanguageMenu.astro";
+import { getI18N } from "../i18n/index";
+
+const { currentLocale } = Astro;
+const i = getI18N({ currentLocale });
+---
+
 <nav>
-  <ul>
-    <li><a href='#experience'>EXPERIENCIA</a></li>
-    <!-- <li><a href=''>PROYECTOS</a></li> -->
-    <li><a href='#about'>SOBRE MI</a></li>
-    <li><a href='mailto:guifreribas@gmail.com'>CONTACTO</a></li>
+  <ul class='list'>
+    <li><a href='#experience'>{i.NAVBAR_LINK1}</a></li>
+    <!-- <li><a href='#projects'>{i.NAVBAR_LINK2}</a></li> -->
+    <li><a href='#about'>{i.NAVBAR_LINK3}</a></li>
+    <li><a href='mailto:guifreribas@gmail.com'>{i.NAVBAR_LINK4}</a></li>
+    <li class='selector'><Selector /></li>
+    <li class='languageMenu'><LanguageMenu /></li>
   </ul>
+  <img class='burger icon--active' src='/icons/menu-burger.svg' alt='Menu burger icon' />
+  <img class='close' src='/icons/close.svg' alt='Close menu icon' />
 </nav>
+
+<script>
+  const menu = document.querySelector(".burger") as HTMLImageElement;
+  const close = document.querySelector(".close") as HTMLImageElement;
+  const ul = document.querySelector(".list") as HTMLUListElement;
+  const links = document.querySelectorAll("ul a");
+
+  menu.addEventListener("click", () => {
+    ul.classList.add("list--active");
+    menu.classList.remove("icon--active");
+    close.classList.add("icon--active");
+  });
+
+  close.addEventListener("click", () => {
+    ul.classList.remove("list--active");
+    close.classList.remove("icon--active");
+    menu.classList.add("icon--active");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      // menu.style.display = "block";
+      // close.style.display = "none";
+      ul.classList.remove("list--active");
+      close.classList.remove("icon--active");
+      menu.classList.add("icon--active");
+    });
+  });
+</script>
 
 <style>
   nav {
@@ -17,9 +59,10 @@
     position: fixed;
     top: 0;
     z-index: 100;
+    position: relative;
   }
 
-  ul {
+  .list {
     display: flex;
     gap: 64px;
     justify-content: space-between;
@@ -27,7 +70,7 @@
     width: 100%;
     max-width: fit-content;
     padding: 16px 64px;
-    border-radius: 0 0 32px 32px;
+    border-radius: 0 0 8px 8px;
     backdrop-filter: blur(20px);
   }
 
@@ -42,12 +85,55 @@
     cursor: pointer;
   }
 
-  @media screen and (width < 600px) {
-    ul {
+  img {
+    width: 32px;
+    height: 32px;
+    display: none;
+    transition: scale 0.1s ease;
+  }
+
+  img:hover {
+    cursor: pointer;
+    scale: 1.1;
+  }
+
+  .languageMenu {
+    display: none;
+  }
+
+  @media screen and (width < 768px) {
+    nav {
+      position: fixed;
+      justify-content: flex-end;
+      backdrop-filter: blur(20px);
+      padding: 8px 24px;
+    }
+    .list {
+      position: absolute;
+      top: 0;
+      padding-block: 42px;
+      right: -130vw;
+      flex-direction: column;
+      gap: 12px;
       max-width: unset;
-      padding: 16px 32px;
-      justify-content: center;
-      gap: 32px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      transition: all 0.6s ease-in;
+      z-index: -1;
+    }
+    .list--active {
+      right: 0;
+    }
+
+    .selector {
+      display: none;
+    }
+    .languageMenu {
+      display: block;
+      margin-top: 12px;
+    }
+    .icon--active {
+      display: block;
     }
   }
 </style>
