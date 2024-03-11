@@ -1,5 +1,7 @@
 ---
-const experiencies = [
+const { currentLocale } = Astro;
+const experiencies = {
+  es: [
     {
         title: "Brothapps",
         date: "(Febrero 2024 - octubre 2021)",
@@ -23,12 +25,63 @@ const experiencies = [
         "Realización de los presupuestos y de la gestión de los recursos materiales y humanos.",
         ],
     },
-]
+    ],
+    ca:[
+      {
+        title: "Brothapps",
+        date: "(Febrer 2024 - octubre 2021)",
+        description: "Empresa de disseny i desenvolupament de productes i solucions digitals.",
+        tasks: [
+        "Vaig participar en l'equip de creació i desenvolupament del front-end d'una web app de principi a fi ajudant al seu desenvolupament i la seva millora en les seves iteracions amb Next.js.",
+        "Desenvolupament i manteniment de diferents interfícies d'administració de productes digitals.",
+        "Integració de serveis de tercer en el front-end en diferents projectes de web apps així com Firebase Realtime DB, Firestone o Stripe entre d'altres.",
+        "Refactorització de codi ja existent per fer-lo més escalable, mantenible i òptim en rendiment i comprensible.",
+        "Desenvolupament de landing pages amb el framework Astro, aplicant bones pràctiques i metodologia BEM.",
+        ],
+      },
+      {
+        title: "Focus",
+        date: "(Maig 2021 - juny 2018)",
+        description: "Empresa de serveis tècnics audiovisuals i productora de teatre.",
+        tasks: [
+        "Responsable del servei tècnic audiovisual del CaixaForum Barcelona",
+        "Encarregat de la gestió del personal tècnic i de la coordinació dels esdeveniments i activitats de l'espai.",
+        "Responsable de la comunicació amb el client i de la resolució de les seves necessitats tècniques.",
+        "Realització dels pressupostos i de la gestió dels recursos materials i humans.",
+        ],
+      },
+    ],
+    en:[
+      {
+        title: "Brothapps",
+        date: "(February 2024 - October 2021)",
+        description: "Design and development company of digital products and solutions.",
+        tasks: [
+        "I participated in the creation and development team of the front-end of a web app from start to finish helping its development and its improvement in its iterations with Next.js.",
+        "Development and maintenance of different digital product administration interfaces.",
+        "Integration of third-party services in the front-end in different web app projects as well as Firebase Realtime DB, Firestone or Stripe among others.",
+        "Refactoring of existing code to make it more scalable, maintainable and optimal in performance and readability.",
+        "Development of landing pages with the Astro framework, applying good practices and BEM methodology.",
+        ],
+      },
+      {
+        title: "Focus",
+        date: "(May 2021 - June 2018)",
+        description: "Audiovisual technical services company and theater producer.",
+        tasks: [
+        "Technical Service Manager of CaixaForum Barcelona",
+        "In charge of managing the technical staff and coordinating the events and activities of the space.",
+        "Person in charge of customer communication and resolution of their technical needs.",
+        "Preparation of budgets and management of material and human resources.",
+        ],
+      },
+    ],
+  };
 ---
 
 <section>
   <div>
-    {experiencies.map(
+    {experiencies[currentLocale].map(
       (experiencie) =>
         <article>
           <div></div>
