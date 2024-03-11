@@ -1,18 +1,23 @@
+---
+import { getI18N } from "../i18n/index";
+
+const { currentLocale } = Astro;
+const i = getI18N({ currentLocale });
+---
+
 <article>
-  <h2>Tecnologías</h2>
-  <section>
-    <img class='react' src='./logos/react.svg' alt='Logo de React' loading='lazy' />
-    <img class='next' src='./logos/nextjs.svg' alt='Logo de Next.js' loading='lazy' />
-    <div>
-      <img class='astro' src='./logos/astro.png' alt='Logo de Astro' loading='lazy' />
-    </div>
-    <img class='javascript' src='./logos/javascript.webp' alt='Logo de JavaScript' loading='lazy' />
-    <img class='typescript' src='./logos/typescript.svg' alt='Logo de TypeScript' loading='lazy' />
-    <img class='css' src='./logos/css.svg' alt='Logo de CSS' loading='lazy' />
-    <img class='html' src='./logos/html.svg' alt='Logo de Html' loading='lazy' />
-    <img class='redux' src='./logos/redux.svg' alt='Logo de Redux' loading='lazy' />
-    <img class='git' src='./logos/git.svg' alt='Logo de Git' loading='lazy' />
-  </section>
+  <h2>{i.TECHNOLOGIES_TITLE}</h2>
+  <ul>
+    <li><img class='react' src='./logos/react.svg' alt={i.TECHNOLOGIES_IMG1_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='next' src='./logos/nextjs.svg' alt={i.TECHNOLOGIES_IMG2_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='astro' src='./logos/astro.webp' alt={i.TECHNOLOGIES_IMG3_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='javascript' src='./logos/javascript.webp' alt={i.TECHNOLOGIES_IMG4_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='typescript' src='./logos/typescript.svg' alt={i.TECHNOLOGIES_IMG5_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='css' src='./logos/css.svg' alt={i.TECHNOLOGIES_IMG6_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='html' src='./logos/html.svg' alt={i.TECHNOLOGIES_IMG7_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='redux' src='./logos/redux.svg' alt={i.TECHNOLOGIES_IMG8_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='git' src='./logos/git.svg' alt={i.TECHNOLOGIES_IMG9_ALT} loading='lazy' width='80' height='80' /></li>
+  </ul>
 </article>
 
 <style>
@@ -21,7 +26,7 @@
     padding: 16px;
   }
 
-  section {
+  ul {
     position: relative;
     margin: 32px auto;
     padding: 32px;
@@ -37,7 +42,14 @@
     aspect-ratio: 1/1;
   }
 
-  div {
+  li {
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+  }
+
+  li:nth-child(3) {
     max-width: 80px;
     aspect-ratio: 1/1;
     display: grid;
