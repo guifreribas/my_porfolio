@@ -2,9 +2,9 @@
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  title: string;
-  description: string;
-  ogDescription: string;
+    title: string;
+    description: string;
+    ogDescription: string;
 }
 
 const { title, description, ogDescription } = Astro.props;
@@ -13,153 +13,175 @@ const { currentLocale } = Astro;
 
 <!doctype html>
 <html lang={currentLocale}>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content={description} />
-    <meta name='title' content='Guifré Puig' />
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='description' content={description} />
+        <meta name='title' content='Guifré Puig' />
 
-    <meta property='og:image' content='./images/gf_photo_cutted.webp' />
-    <meta property='og:description' content={ogDescription} />
-    <meta property='og:title' content='Guifré Puig - Desarrollador front end' />
-    <meta property='og:url' content='https://guifre.dev' />
-    <meta property='og:type' content='website' />
-    <meta property='og:locale' content='es_ES' />
-    <meta property='og:site_name' content='Guifré Puig' />
+        <meta property='og:image' content='./images/gf_photo_cutted.webp' />
+        <meta property='og:description' content={ogDescription} />
+        <meta
+            property='og:title'
+            content='Guifré Puig - Desarrollador front end'
+        />
+        <meta property='og:url' content='https://guifre.dev' />
+        <meta property='og:type' content='website' />
+        <meta property='og:locale' content='es_ES' />
+        <meta property='og:site_name' content='Guifré Puig' />
 
-    <meta name='keywords' content='Guifré Puig, Frontend, Barcelona, Desarrollador, Web' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.webp' />
-    <link rel='canonical' href='https://guifre.dev' />
+        <meta
+            name='keywords'
+            content='Guifré Puig, Frontend, Barcelona, Desarrollador, Web'
+        />
+        <meta name='viewport' content='width=device-width' />
+        <link rel='icon' type='image/svg+xml' href='/favicon.webp' />
+        <link rel='canonical' href='https://guifre.dev' />
 
-    <meta name='robots' content='index, follow' />
-    <meta name='googlebot' content='index, follow' />
+        <meta name='robots' content='index, follow' />
+        <meta name='googlebot' content='index, follow' />
 
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
-    <!-- <ViewTransitions /> -->
-  </head>
-  <body>
-    <slot />
-    <style is:global>
-      @font-face {
-        font-family: "Onest", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        src: url(https://fonts.gstatic.com/s/onest/v6/gNMZW3F-SZuj7zOT0IfSjTS16cPh9R-ptRtNY2DwSHFM.woff2) format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: "Onest", sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        src: url(https://fonts.gstatic.com/s/onest/v6/gNMZW3F-SZuj7zOT0IfSjTS16cPh9R-ptRtNY2DwSHFM.woff2) format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: "NunitoSans", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        src: url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3j6zbXWjgeg.woff2) format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: "NunitoSans", sans-serif;
-        font-style: normal;
-        font-weight: 100;
-        src: url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3j6zbXWjgeg.woff2) format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
+        <meta name='generator' content={Astro.generator} />
+        <title>{title}</title>
+        <!-- <ViewTransitions /> -->
+    </head>
+    <body>
+        <slot />
+        <style is:global>
+            @font-face {
+                font-family: "Onest", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/onest/v6/gNMZW3F-SZuj7zOT0IfSjTS16cPh9R-ptRtNY2DwSHFM.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC,
+                    U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Onest", sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                src: url(https://fonts.gstatic.com/s/onest/v6/gNMZW3F-SZuj7zOT0IfSjTS16cPh9R-ptRtNY2DwSHFM.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC,
+                    U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "NunitoSans", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3j6zbXWjgeg.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC,
+                    U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "NunitoSans", sans-serif;
+                font-style: normal;
+                font-weight: 100;
+                src: url(https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3j6zbXWjgeg.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC,
+                    U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
 
-      :root {
-        --white: #ffffff;
-        --black: #000000;
-        /* color PALETTE */
-        --color-blue: #0b0d3f;
-        --color-blue-light: #070b5c;
-        --color-yellow: #e6c339;
-        --color-brown: #a69553;
-        --color-gray: #66614d;
-        --color-purple: #545791;
+            :root {
+                --white: #ffffff;
+                --black: #000000;
+                /* color PALETTE */
+                --color-blue: #0b0d3f;
+                --color-blue-light: #070b5c;
+                --color-yellow: #e6c339;
+                --color-brown: #a69553;
+                --color-gray: #66614d;
+                --color-purple: #545791;
 
-        --backgroundGradient: linear-gradient(0deg, rgba(3, 4, 41, 1) 0%, rgba(11, 13, 63, 1) 49%, rgba(7, 11, 92, 1) 100%);
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
-      html {
-        font-family: system-ui, sans-serif;
-        background: #13151a;
-        background-size: 224px;
-        scroll-behavior: smooth;
-      }
-      body {
-        width: 100%;
-        min-height: 100vh;
-        background: var(--backgroundGradient);
-        color: var(--white);
-      }
+                --backgroundGradient: radial-gradient(
+                    ellipse 80% 80% at 50% -20%,
+                    rgb(35, 36, 61),
+                    rgba(9, 11, 24)
+                );
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+            html {
+                font-family: system-ui, sans-serif;
+                background: #13151a;
+                background-size: 224px;
+                scroll-behavior: smooth;
+            }
+            body {
+                width: 100%;
+                min-height: 100vh;
+                background: var(--backgroundGradient);
+                color: var(--white);
+            }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Onest", sans-serif;
-        line-height: 150%;
-      }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "Onest", sans-serif;
+                line-height: 150%;
+            }
 
-      h1 {
-        font-size: clamp(2rem, 5vw, 2.5rem);
-      }
+            h1 {
+                font-size: clamp(2rem, 5vw, 2.5rem);
+            }
 
-      h2 {
-        font-size: clamp(1.75rem, 5vw, 2rem);
-        color: var(--color-yellow);
-      }
+            h2 {
+                font-size: clamp(1.75rem, 5vw, 2rem);
+                color: var(--color-yellow);
+            }
 
-      h3 {
-        font-size: clamp(1.5rem, 4vw, 1.75rem);
-      }
+            h3 {
+                font-size: clamp(1.5rem, 4vw, 1.75rem);
+            }
 
-      h4 {
-        font-size: clamp(1.25rem, 3vw, 1.5rem);
-      }
+            h4 {
+                font-size: clamp(1.25rem, 3vw, 1.5rem);
+            }
 
-      /* h5 {
+            /* h5 {
     font-size: clamp(0.875rem, 3vw, 1rem);
   } */
 
-      p {
-        font-family: "NunitoSans", sans-serif;
-        font-size: clamp(0.875rem, 2vw, 1rem);
-        line-height: 150%;
-        letter-spacing: 0.04ch;
-        /* text-wrap: balance; */
-      }
+            p {
+                font-family: "NunitoSans", sans-serif;
+                font-size: clamp(0.875rem, 2vw, 1rem);
+                line-height: 150%;
+                letter-spacing: 0.04ch;
+                /* text-wrap: balance; */
+            }
 
-      li {
-        font-family: "NunitoSans", sans-serif;
-        font-size: clamp(0.875rem, 2vw, 1rem);
-        line-height: 150%;
-        letter-spacing: 0.04ch;
-        list-style: none;
-      }
+            li {
+                font-family: "NunitoSans", sans-serif;
+                font-size: clamp(0.875rem, 2vw, 1rem);
+                line-height: 150%;
+                letter-spacing: 0.04ch;
+                list-style: none;
+            }
 
-      a {
-        text-decoration: none;
-        color: var(--white);
-        font-family: "NunitoSans", sans-serif;
-        font-size: 0.875rem;
-      }
-    </style>
-  </body>
+            a {
+                text-decoration: none;
+                color: var(--white);
+                font-family: "NunitoSans", sans-serif;
+                font-size: 0.875rem;
+            }
+        </style>
+    </body>
 </html>
