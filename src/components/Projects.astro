@@ -1,0 +1,253 @@
+---
+import { getI18N } from "../i18n/index";
+import ExperienceItem from "./ExperienceItem.astro";
+
+const { currentLocale } = Astro;
+const i = getI18N({ currentLocale });
+---
+
+<article class='relative mb-32'>
+	<div
+		id='projects'
+		class='absolute -top-14'
+	>
+	</div>
+	<h2 class='text-4xl font-semibold mb-16'>{i.PROJECTS_TITLE}</h2>
+	<section class='flex flex-col gap-24'>
+		<article class='grid md:grid-cols-5 gap-16'>
+			<div class='w-full flex flex-col gap-4 md:col-span-2'>
+				<img
+					src='./images/pro_match_players.png'
+					alt='Pro Match Player Screenshot'
+					class='w-full rounded-lg'
+				/>
+			</div>
+			<div class='flex flex-col gap-4 md:col-span-3'>
+				<h3 class='text-2xl font-semibold text-gf-yellow'>Pro Match</h3>
+				<section class='flex flex-col gap-2 mb-4'>
+					<p class='text-gray-300 text-balance'>
+						Actualmente desarrollo una web app en fase MVP. El
+						frontend está hecho con Angular 18 y Tailwind CSS,
+						mientras que el backend utiliza Node.js, Express y
+						Sequelize con MySQL.
+					</p>
+					<p class='text-gray-300 text-balance'>
+						La plataforma permite crear y gestionar ligas de fútbol
+						sala. Ya es posible crear ligas de ida y vuelta, y sigo
+						añadiendo mejoras y nuevas funcionalidades.
+					</p>
+				</section>
+
+				<div class='grid sm:grid-cols-2 gap-4'>
+					<a
+						href='https://github.com/guifreribas/pro_match_app'
+						target='_blank'
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/github.svg'
+							alt='GitHub icon'
+							class='w-6 h-6'
+						/>
+						<p>Frontend code</p>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='w-4 h-4'
+							><path
+								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
+							></path><path d='m21 3-9 9'></path><path
+								d='M15 3h6v6'></path></svg
+						>
+					</a>
+
+					<a
+						href='https://github.com/guifreribas/pro_match_api'
+						target='_blank'
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/github.svg'
+							alt='GitHub icon'
+							class='w-6 h-6'
+						/>
+						<p>Backend code</p>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='w-4 h-4'
+							><path
+								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
+							></path><path d='m21 3-9 9'></path><path
+								d='M15 3h6v6'></path></svg
+						>
+					</a>
+				</div>
+			</div>
+		</article>
+
+		<article class='grid md:grid-cols-5 gap-16'>
+			<div class='w-full flex gap-4 md:col-span-2'>
+				<img
+					src='./images/guifre_link_screen.png'
+					alt='Pro Match Player Screenshot'
+					class='w-full rounded-lg'
+				/>
+			</div>
+			<div class='w-full flex flex-col gap-4 md:col-span-3'>
+				<h3 class='text-2xl font-semibold text-gf-yellow'>
+					Guifre Link
+				</h3>
+				<section class='flex flex-col gap-2 mb-4'>
+					<p class='text-gray-300 text-balance'>
+						He desarrollado una web app para acortar URLs de forma
+						rápida. Está hecha con Next.js 14 y usa MongoDB para
+						almacenar las URLs.
+					</p>
+					<p class='text-gray-300 text-balance'>
+						Esta primera versión permite crear y redirigir URLs
+						acortadas. Estoy trabajando en añadir seguimiento de
+						clics y caducidad de URLs.
+					</p>
+				</section>
+
+				<div class='grid sm:grid-cols-2 gap-4'>
+					<a
+						href='https://guifre.link'
+						target='_blank'
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/world.svg'
+							alt='World icon'
+							class='w-6 h-6'
+						/>
+						<p>Ir a la web</p>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='w-4 h-4'
+							><path
+								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
+							></path><path d='m21 3-9 9'></path><path
+								d='M15 3h6v6'></path></svg
+						>
+					</a>
+					<a
+						href='https://github.com/guifreribas/guifre_link'
+						target='_blank'
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/github.svg'
+							alt='GitHub icon'
+							class='w-6 h-6'
+						/>
+						<p>Guifre Link</p>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='w-4 h-4'
+							><path
+								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
+							></path><path d='m21 3-9 9'></path><path
+								d='M15 3h6v6'></path></svg
+						>
+					</a>
+				</div>
+			</div>
+		</article>
+
+		<article class='grid md:grid-cols-5 gap-16'>
+			<div class='flex flex-col gap-4 md:col-span-2'>
+				<img
+					src='./images/vicobook_coread.webp'
+					alt='Pro Match Player Screenshot'
+					class='w-full rounded-lg'
+				/>
+			</div>
+			<div class='flex flex-col gap-4 md:col-span-3'>
+				<h3 class='text-2xl font-semibold text-gf-yellow'>Vicobook</h3>
+				<p class='text-gray-300 text-balance'>
+					He trabajado en el frontend de una web app para crear
+					proyectos de escritura colaborativa en tiempo real, a través
+					de la empresa Brothapps.
+				</p>
+				<p class='text-gray-300 text-balance mb-4'>
+					El proyecto está desarrollado con Next.js 12 y Chakra UI,
+					ofreciendo una interfaz fluida y funcional para la
+					colaboración simultánea.
+				</p>
+
+				<div class='grid sm:grid-cols-2 gap-4'>
+					<a
+						href='https://brothapps.com/es/products/vicobook/'
+						target='_blank'
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/world.svg'
+							alt='World icon'
+							class='w-6 h-6'
+						/>
+						<p>Más información</p>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='w-4 h-4'
+							><path
+								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
+							></path><path d='m21 3-9 9'></path><path
+								d='M15 3h6v6'></path></svg
+						>
+					</a>
+				</div>
+			</div>
+		</article>
+	</section>
+</article>

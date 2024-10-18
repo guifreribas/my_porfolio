@@ -1,6 +1,23 @@
 ---
+import { string } from "astro/zod";
+
 const { currentLocale } = Astro;
-const experiencies = {
+
+
+type Experiencies = {
+  title: string;
+  date: string;
+  description: string;
+  tasks: string[];
+}
+
+type ExperienciesByLanguage = {
+  es: Experiencies[];
+  ca: Experiencies[];
+  en: Experiencies[];
+}
+
+const experiencies: ExperienciesByLanguage = {
   es: [
     {
         title: "Brothapps",
@@ -82,35 +99,28 @@ const experiencies = {
 <section>
   <div>
     {experiencies[currentLocale].map(
-      (experiencie) =>
-        <article>
-          <div></div>
-          <div>
-            <div></div>
-          </div>
+      (experiencie: Experiencies) =>
+        <article class="relative mx-12 pb-12 grid before:absolute before:left-[-33px] before:block before:h-full before:border-l-2 before:border-gf-yellow/40 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
 
-          <section>
-            <div>
+
+            <div class="relative pb-12 md:col-span-2">
+             <span class="text-gf-yellow -left-[42px] absolute rounded-full text-5xl">&bull;</span>
               <section>
-                <h4>{experiencie.title}</h4>
-                <p>{experiencie.date}</p>
+                <h4 class="text-2xl font-bold text-gf-yellow">{experiencie.title}</h4>
+                <p class="text-md text-gray-400 italic">{experiencie.date}</p>
               </section>
-              <p>{experiencie.description}</p>
+              <p class="text-sm text-gray-200">{experiencie.description}</p>
             </div>
 
-            <ul>
-              {experiencie.tasks.map(
-                (task) =>
-                  <li>{task}</li>
-              )}
+            <ul class="relative list-disc flex flex-col gap-1 pb-4 md:col-span-3">
+              {experiencie.tasks.map((task) => <li>{task}</li> )}
             </ul>
-          </section>
         </article>
     )}
   </div>
 
 
-<style>
+<!-- <style>
   article {
     /* margin: 32px 0; */
     padding: 32px 16px;
@@ -211,4 +221,4 @@ const experiencies = {
       left: -1rem; */
     /* }  */
   }
-</style>
+</style> -->

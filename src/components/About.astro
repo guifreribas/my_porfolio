@@ -5,43 +5,36 @@ const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 ---
 
-<article>
-  <div id='about'></div>
-  <h2>{i.ABOUT_TITLE}</h2>
-  <section>
-    <p>
-      <span>{i.ABOUT_DESCRIPTION_1}</span>{i.ABOUT_DESCRIPTION_2}<span>{i.ABOUT_DESCRIPTION_3}</span>{i.ABOUT_DESCRIPTION_4}<span>{i.ABOUT_DESCRIPTION_5}</span
-      >.
-    </p>
-    <p>{i.ABOUT_DESCRIPTION_6}<span>{i.ABOUT_DESCRIPTION_7}</span>{i.ABOUT_DESCRIPTION_8}<span>{i.ABOUT_DESCRIPTION_9}</span>{i.ABOUT_DESCRIPTION_10}</p>
-    <p>
-      {i.ABOUT_DESCRIPTION_11}<span>{i.ABOUT_DESCRIPTION_12}</span>{i.ABOUT_DESCRIPTION_13}<span>{i.ABOUT_DESCRIPTION_14}</span>{i.ABOUT_DESCRIPTION_15}<span
-        >{i.ABOUT_DESCRIPTION_16}</span
-      >.
-    </p>
-  </section>
-
-  <style>
-    article {
-      margin: 32px 0;
-      padding: 16px;
-      position: relative;
-    }
-    div {
-      position: absolute;
-      top: -50px;
-    }
-    section {
-      margin: auto;
-      padding: 16px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px 16px;
-      max-width: 70ch;
-    }
-
-    span {
-      color: var(--color-brown);
-    }
-  </style>
+<article class='relative mb-32'>
+	<div
+		id='about'
+		class='absolute -top-14'
+	>
+	</div>
+	<h2 class='text-4xl font-semibold mb-4'>{i.ABOUT_TITLE}</h2>
+	<section class='flex flex-col gap-4 text-balance'>
+		<p>
+			<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_1}</span>{
+				i.ABOUT_DESCRIPTION_2
+			}<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_3}</span>{
+				i.ABOUT_DESCRIPTION_4
+			}<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_5}</span>.
+		</p>
+		<p>
+			{i.ABOUT_DESCRIPTION_6}<span class='text-gf-brown'
+				>{i.ABOUT_DESCRIPTION_7}</span
+			>{i.ABOUT_DESCRIPTION_8}<span class='text-gf-brown'
+				>{i.ABOUT_DESCRIPTION_9}</span
+			>{i.ABOUT_DESCRIPTION_10}
+		</p>
+		<p>
+			{i.ABOUT_DESCRIPTION_11}<span class='text-gf-brown'
+				>{i.ABOUT_DESCRIPTION_12}</span
+			>{i.ABOUT_DESCRIPTION_13}<span class='text-gf-brown'
+				>{i.ABOUT_DESCRIPTION_14}</span
+			>{i.ABOUT_DESCRIPTION_15}<span class='text-gf-brown'
+				>{i.ABOUT_DESCRIPTION_16}</span
+			>.
+		</p>
+	</section>
 </article>

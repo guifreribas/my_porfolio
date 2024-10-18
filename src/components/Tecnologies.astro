@@ -3,58 +3,144 @@ import { getI18N } from "../i18n/index";
 
 const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
+
+
 ---
 
 <article>
-  <h2>{i.TECHNOLOGIES_TITLE}</h2>
-  <ul>
-    <li><img class='react' src='./logos/react.svg' alt={i.TECHNOLOGIES_IMG1_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='next' src='./logos/nextjs.svg' alt={i.TECHNOLOGIES_IMG2_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='astro' src='./logos/astro.webp' alt={i.TECHNOLOGIES_IMG3_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='javascript' src='./logos/javascript.webp' alt={i.TECHNOLOGIES_IMG4_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='typescript' src='./logos/typescript.svg' alt={i.TECHNOLOGIES_IMG5_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='css' src='./logos/css.svg' alt={i.TECHNOLOGIES_IMG6_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='html' src='./logos/html.svg' alt={i.TECHNOLOGIES_IMG7_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='redux' src='./logos/redux.svg' alt={i.TECHNOLOGIES_IMG8_ALT} loading='lazy' width='80' height='80' /></li>
-    <li><img class='git' src='./logos/git.svg' alt={i.TECHNOLOGIES_IMG9_ALT} loading='lazy' width='80' height='80' /></li>
-  </ul>
+    <h2 class="text-4xl font-semibold mb-4">{i.TECHNOLOGIES_TITLE}</h2>
+    <ul>
+        <li>
+            <img
+                class='react'
+                src='./logos/react.svg'
+                alt={i.TECHNOLOGIES_IMG1_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='next'
+                src='./logos/nextjs.svg'
+                alt={i.TECHNOLOGIES_IMG2_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='astro'
+                src='./logos/astro.webp'
+                alt={i.TECHNOLOGIES_IMG3_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='javascript'
+                src='./logos/javascript.webp'
+                alt={i.TECHNOLOGIES_IMG4_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='typescript'
+                src='./logos/typescript.svg'
+                alt={i.TECHNOLOGIES_IMG5_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='css'
+                src='./logos/css.svg'
+                alt={i.TECHNOLOGIES_IMG6_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='html'
+                src='./logos/html.svg'
+                alt={i.TECHNOLOGIES_IMG7_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='redux'
+                src='./logos/redux.svg'
+                alt={i.TECHNOLOGIES_IMG8_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <li>
+            <img
+                class='git'
+                src='./logos/git.svg'
+                alt={i.TECHNOLOGIES_IMG9_ALT}
+                loading='lazy'
+                width='80'
+                height='80'
+            />
+        </li>
+        <!-- <li><img class='astro' src='./logos/node-js-logo.webp' alt={i.TECHNOLOGIES_IMG9_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='astro' src='./logos/mongodb_logo.webp' alt={i.TECHNOLOGIES_IMG9_ALT} loading='lazy' width='80' height='80' /></li>
+    <li><img class='astro' src='./logos/mysql-logo.webp' alt={i.TECHNOLOGIES_IMG9_ALT} loading='lazy' width='80' height='80' /></li> -->
+    </ul>
 </article>
 
-<style>
-  article {
-    margin: 32px auto;
-    padding: 16px;
-  }
+<!-- <style>
+    article {
+        margin: 32px auto;
+        padding: 16px;
+    }
 
-  ul {
-    position: relative;
-    margin: 32px auto;
-    padding: 32px;
-    backdrop-filter: blur(80px);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 16px;
-    place-items: center;
-  }
+    ul {
+        position: relative;
+        margin: 32px auto;
+        padding: 32px;
+        backdrop-filter: blur(80px);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 16px;
+        place-items: center;
+    }
 
-  img {
-    max-width: 80px;
-    aspect-ratio: 1/1;
-  }
+    img {
+        max-width: 80px;
+        aspect-ratio: 1/1;
+    }
 
-  li {
-    width: 100%;
-    height: auto;
-    display: grid;
-    place-items: center;
-  }
+    li {
+        width: 100%;
+        height: auto;
+        display: grid;
+        place-items: center;
+    }
 
-  li:nth-child(3) {
-    max-width: 80px;
-    aspect-ratio: 1/1;
-    display: grid;
-    place-items: center;
-    background-color: white;
-    border-radius: 4px;
-  }
-</style>
+    li:nth-child(3) {
+        max-width: 80px;
+        aspect-ratio: 1/1;
+        display: grid;
+        place-items: center;
+        background-color: white;
+        border-radius: 4px;
+    }
+</style> -->

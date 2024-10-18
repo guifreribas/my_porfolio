@@ -8,132 +8,140 @@ const i = getI18N({ currentLocale });
 ---
 
 <nav>
-  <ul class='list'>
-    <li><a href='#experience'>{i.NAVBAR_LINK1}</a></li>
-    <!-- <li><a href='#projects'>{i.NAVBAR_LINK2}</a></li> -->
-    <li><a href='#about'>{i.NAVBAR_LINK3}</a></li>
-    <li><a href='mailto:guifreribas@gmail.com'>{i.NAVBAR_LINK4}</a></li>
-    <li class='selector'><Selector /></li>
-    <li class='languageMenu'><LanguageMenu /></li>
-  </ul>
-  <img class='burger icon--active' src='/icons/menu-burger.svg' alt='Menu burger icon' />
-  <img class='close' src='/icons/close.svg' alt='Close menu icon' />
+	<ul class='list'>
+		<li><a href='#experience'>{i.NAVBAR_LINK1}</a></li>
+		<li><a href='#projects'>{i.NAVBAR_LINK2}</a></li>
+		<li><a href='#about'>{i.NAVBAR_LINK3}</a></li>
+		<li><a href='mailto:guifreribas@gmail.com'>{i.NAVBAR_LINK4}</a></li>
+		<li class='selector'><Selector /></li>
+		<li class='languageMenu'><LanguageMenu /></li>
+	</ul>
+	<img
+		class='burger icon--active'
+		src='/icons/menu-burger.svg'
+		alt='Menu burger icon'
+	/>
+	<img
+		class='close'
+		src='/icons/close.svg'
+		alt='Close menu icon'
+	/>
 </nav>
 
 <script>
-  const menu = document.querySelector(".burger") as HTMLImageElement;
-  const close = document.querySelector(".close") as HTMLImageElement;
-  const ul = document.querySelector(".list") as HTMLUListElement;
-  const links = document.querySelectorAll("ul a");
+	const menu = document.querySelector(".burger") as HTMLImageElement;
+	const close = document.querySelector(".close") as HTMLImageElement;
+	const ul = document.querySelector(".list") as HTMLUListElement;
+	const links = document.querySelectorAll("ul a");
 
-  menu.addEventListener("click", () => {
-    ul.classList.add("list--active");
-    menu.classList.remove("icon--active");
-    close.classList.add("icon--active");
-  });
+	menu.addEventListener("click", () => {
+		ul.classList.add("list--active");
+		menu.classList.remove("icon--active");
+		close.classList.add("icon--active");
+	});
 
-  close.addEventListener("click", () => {
-    ul.classList.remove("list--active");
-    close.classList.remove("icon--active");
-    menu.classList.add("icon--active");
-  });
+	close.addEventListener("click", () => {
+		ul.classList.remove("list--active");
+		close.classList.remove("icon--active");
+		menu.classList.add("icon--active");
+	});
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      ul.classList.remove("list--active");
-      close.classList.remove("icon--active");
-      menu.classList.add("icon--active");
-    });
-  });
+	links.forEach((link) => {
+		link.addEventListener("click", () => {
+			ul.classList.remove("list--active");
+			close.classList.remove("icon--active");
+			menu.classList.add("icon--active");
+		});
+	});
 </script>
 
 <style>
-  nav {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    position: fixed;
-  }
+	nav {
+		width: 100%;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		z-index: 100;
+		position: fixed;
+	}
 
-  .list {
-    display: flex;
-    gap: 64px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 16px 64px;
-    border-radius: 0 0 8px 8px;
-    backdrop-filter: blur(20px);
-  }
+	.list {
+		display: flex;
+		gap: 64px;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 16px 64px;
+		border-radius: 0 0 8px 8px;
+		backdrop-filter: blur(20px);
+	}
 
-  a {
-    transition: color 0.3s ease-out;
-    text-wrap: nowrap;
-  }
-  a:hover {
-    width: fit-content;
-    height: fit-content;
-    color: var(--color-yellow);
-    cursor: pointer;
-  }
+	a {
+		transition: color 0.3s ease-out;
+		text-wrap: nowrap;
+	}
+	a:hover {
+		width: fit-content;
+		height: fit-content;
+		color: var(--color-yellow);
+		cursor: pointer;
+	}
 
-  img {
-    width: 32px;
-    height: 32px;
-    display: none;
-    transition: scale 0.1s ease;
-  }
+	img {
+		width: 32px;
+		height: 32px;
+		display: none;
+		transition: scale 0.1s ease;
+	}
 
-  img:hover {
-    cursor: pointer;
-    scale: 1.1;
-  }
+	img:hover {
+		cursor: pointer;
+		scale: 1.1;
+	}
 
-  .languageMenu {
-    display: none;
-  }
+	.languageMenu {
+		display: none;
+	}
 
-  @media screen and (width < 768px) {
-    nav {
-      position: fixed;
-      justify-content: flex-end;
-      backdrop-filter: blur(20px);
-      padding: 12px 36px;
-    }
-    a {
-      font-size: 1rem;
-    }
-    .list {
-      position: absolute;
-      top: 0;
-      padding-block: 42px;
-      right: -130vw;
-      flex-direction: column;
-      gap: 16px;
-      max-width: unset;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(20px);
-      transition: all 0.4s ease-in;
-      z-index: -1;
-    }
-    .list--active {
-      right: 0;
-    }
+	@media screen and (width < 768px) {
+		nav {
+			position: fixed;
+			justify-content: flex-end;
+			backdrop-filter: blur(20px);
+			padding: 12px 36px;
+		}
+		a {
+			font-size: 1rem;
+		}
+		.list {
+			position: absolute;
+			top: 0;
+			padding-block: 42px;
+			right: -130vw;
+			flex-direction: column;
+			gap: 16px;
+			max-width: unset;
+			background-color: rgba(0, 0, 0, 0.8);
+			backdrop-filter: blur(20px);
+			transition: all 0.4s ease-in;
+			z-index: -1;
+		}
+		.list--active {
+			right: 0;
+		}
 
-    .selector {
-      display: none;
-    }
-    .languageMenu {
-      display: block;
-      margin-top: 12px;
-    }
-    .icon--active {
-      display: block;
-    }
-  }
+		.selector {
+			display: none;
+		}
+		.languageMenu {
+			display: block;
+			margin-top: 12px;
+		}
+		.icon--active {
+			display: block;
+		}
+	}
 </style>

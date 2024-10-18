@@ -6,21 +6,12 @@ const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 ---
 
-<article>
-  <div id='experience'></div>
-  <h2>{i.EXPERIENCE_TITLE}</h2>
-  <ExperienceItem />
+<article class='relative mb-32'>
+	<div
+		id='experience'
+		class='absolute -top-14'
+	>
+	</div>
+	<h2 class='text-4xl font-semibold mb-16'>{i.EXPERIENCE_TITLE}</h2>
+	<ExperienceItem />
 </article>
-
-<style>
-  article {
-    margin: 32px 0;
-    padding: 16px;
-    position: relative;
-  }
-
-  div {
-    position: absolute;
-    top: -50px;
-  }
-</style>
