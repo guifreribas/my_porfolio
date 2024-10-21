@@ -1,0 +1,86 @@
+---
+
+---
+
+<div
+	id='video-modal'
+	class='hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50 px-16'
+>
+	<div
+		class='flex justify-center items-center w-fit h-fit mx-auto relative top-6 shadow-lg bg-white group rounded-lg'
+	>
+		<div
+			class='relative text-center flex justify-center items-center border-2 overflow-hidden rounded-lg'
+		>
+			<button
+				id='close-modal'
+				class='opacity-0 z-50 absolute top-0 right-0 w-fit text-gray-800 bg-white hover:text-black hover:bg-gray-200 hover:cursor-pointer text-sm p-1.5 ml-auto group-hover:opacity-100 inline-flex items-center transition-all duration-150 rounded'
+			>
+				<svg
+					class='w-8 h-8'
+					fill='currentColor'
+					viewBox='0 0 20 20'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<path
+						fill-rule='evenodd'
+						d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+						clip-rule='evenodd'
+					></path>
+				</svg>
+			</button>
+
+			<video
+				id='video-player'
+				class='aspect-video mx-auto rounded'
+				controls
+				loop='false'
+				autoplay='true'
+			>
+				<source
+					src='./videos/pro_match_video_demo2.mp4'
+					type='video/mp4'
+				/>
+				El teu navegador no suporta el tag de vídeo.
+			</video>
+		</div>
+	</div>
+</div>
+
+<button
+	id='open-modal'
+	class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+>
+	<img
+		src='./icons/play.svg'
+		alt='GitHub icon'
+		class='w-6 h-6'
+	/>
+	<p>Video demo</p>
+</button>
+
+<script>
+	const modal = document.getElementById("video-modal") as HTMLDivElement;
+	const btn = document.getElementById("open-modal") as HTMLButtonElement;
+	const close = document.getElementById("close-modal") as HTMLButtonElement;
+	const video = document.getElementById("video-player") as HTMLVideoElement;
+
+	btn.onclick = function () {
+		modal.classList.remove("hidden");
+		video.play();
+	};
+
+	close.onclick = function () {
+		modal.classList.add("hidden");
+		video.pause();
+	};
+
+	window.onclick = function (event: Event) {
+		if (event.target == modal) {
+			modal.classList.add("hidden");
+			video.pause();
+		}
+	};
+</script>
