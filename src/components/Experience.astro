@@ -6,12 +6,16 @@ const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 ---
 
-<article class='relative mb-32'>
+<article class='section relative mb-32'>
 	<div
 		id='experience'
 		class='absolute -top-14'
 	>
 	</div>
-	<h2 class='text-4xl font-semibold mb-16'>{i.EXPERIENCE_TITLE}</h2>
+	<h2
+		class='text-4xl font-semibold mb-16 underline underline-offset-8 decoration-1 decoration-gf-yellow'
+	>
+		{i.EXPERIENCE_TITLE}
+	</h2>
 	<ExperienceItem />
 </article>
