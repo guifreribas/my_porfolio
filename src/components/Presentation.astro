@@ -5,51 +5,66 @@ const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 
 const LINKS = [
-  {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/in/guifrepuig/",
-    icon: "./icons/linkedin.svg",
-    alt: i.PRESENTATION_IMG_ALT_1,
-  },
-  {
-    title: "GitHub",
-    href: "https://github.com/guifreribas/",
-    icon: "./icons/github.svg",
-    alt: i.PRESENTATION_IMG_ALT_2,
-  },
-  {
-    title: "Curriculum vitae",
-    href: "/documents/guifre_puig_cv.pdf",
-    icon: "./icons/cv.svg",
-    alt: i.PRESENTATION_IMG_ALT_3,
-  },
+	{
+		title: "LinkedIn",
+		href: "https://www.linkedin.com/in/guifrepuig/",
+		icon: "./icons/linkedin.svg",
+		alt: i.PRESENTATION_IMG_ALT_1,
+	},
+	{
+		title: "GitHub",
+		href: "https://github.com/guifreribas/",
+		icon: "./icons/github.svg",
+		alt: i.PRESENTATION_IMG_ALT_2,
+	},
+	{
+		title: "Curriculum vitae",
+		href: "/documents/guifre_puig_cv.pdf",
+		icon: "./icons/cv.svg",
+		alt: i.PRESENTATION_IMG_ALT_3,
+	},
 ];
 ---
 
-<article class="w-full grid grid-cols-1 md:grid-cols-2 py-32">
-    <div class="w-full flex flex-col items-start justify-center gap-2">
-      <h1 class="text-5xl font-semibold">GUIFRÉ PUIG RIBAS</h1>
-      <h3 class="text-2xl text-gf-yellow">{i.PRESENTATION_POSITION}</h3>
-      <p class="max-w-[80ch]">
-        {i.PRESENTATION_DESCRIPTION_1}<span class="text-gf-brown">{i.PRESENTATION_DESCRIPTION_2}</span>{i.PRESENTATION_DESCRIPTION_3}<span class="text-gf-brown">{i.PRESENTATION_DESCRIPTION_4}</span>{i.PRESENTATION_DESCRIPTION_5}
-      </p>
+<article class='section w-full grid grid-cols-1 md:grid-cols-2 py-32 mb-16'>
+	<div class='w-full flex flex-col items-start justify-center gap-2'>
+		<h1 class='text-5xl font-semibold'>GUIFRÉ PUIG RIBAS</h1>
+		<h3 class='text-2xl text-gf-yellow'>{i.PRESENTATION_POSITION}</h3>
+		<p class='max-w-[80ch]'>
+			{i.PRESENTATION_DESCRIPTION_1}<span class='text-gf-brown'
+				>{i.PRESENTATION_DESCRIPTION_2}</span
+			>{i.PRESENTATION_DESCRIPTION_3}<span class='text-gf-brown'
+				>{i.PRESENTATION_DESCRIPTION_4}</span
+			>{i.PRESENTATION_DESCRIPTION_5}
+		</p>
 
-      <div class="flex flex-row items-center justify-center gap-2">
-        {
-          LINKS.map(
-            (link) =>
-              <a href={link.href} target='_blank' class="w-8 h-8 inline-block hover:scale-110 transition-transform duration-200">
-                <img src={link.icon} alt={link.alt} class="w-full h-full" />
-              </a>
-          )
-        }
-      </div>
-    </div>
-    <div class="w-full flex justify-center self-start overflow-hidden">
-      <div class="max-w-48 aspect-auto rounded-xl overflow-hidden">
-      <img src='./images/gf_photo_cutted.webp' alt={i.PRESENTATION_IMG_ALT_4} width='200px' aspect-ratio='2025/1836' class="animate-slide-in rounded-xl overflow-hidden"/>
-      </div>
-    </div>
-
+		<div class='flex flex-row items-center justify-center gap-2'>
+			{
+				LINKS.map((link) => (
+					<a
+						href={link.href}
+						target='_blank'
+						class='w-8 h-8 inline-block hover:scale-110 transition-transform duration-200'
+					>
+						<img
+							src={link.icon}
+							alt={link.alt}
+							class='w-full h-full'
+						/>
+					</a>
+				))
+			}
+		</div>
+	</div>
+	<div class='w-full flex justify-center self-start overflow-hidden'>
+		<div class='max-w-48 aspect-auto rounded-xl overflow-hidden'>
+			<img
+				src='./images/gf_photo_cutted.webp'
+				alt={i.PRESENTATION_IMG_ALT_4}
+				width='200px'
+				aspect-ratio='2025/1836'
+				class='animate-slide-in rounded-xl overflow-hidden'
+			/>
+		</div>
+	</div>
 </article>
-
