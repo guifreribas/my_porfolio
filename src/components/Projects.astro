@@ -1,18 +1,23 @@
 ---
 import { getI18N } from "../i18n/index";
 import ExperienceItem from "./ExperienceItem.astro";
+import VideoModal from "./VideoModal.astro";
 
 const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 ---
 
-<article class='relative mb-32'>
+<article class='section relative mb-32'>
 	<div
 		id='projects'
 		class='absolute -top-14'
 	>
 	</div>
-	<h2 class='text-4xl font-semibold mb-16'>{i.PROJECTS_TITLE}</h2>
+	<h2
+		class='text-4xl font-semibold mb-16 underline underline-offset-8 decoration-1 decoration-gf-yellow'
+	>
+		{i.PROJECTS_TITLE}
+	</h2>
 	<section class='flex flex-col gap-24'>
 		<article class='grid md:grid-cols-5 gap-16'>
 			<div class='w-full flex flex-col gap-4 md:col-span-2'>
@@ -100,6 +105,22 @@ const i = getI18N({ currentLocale });
 								d='M15 3h6v6'></path></svg
 						>
 					</a>
+
+					<VideoModal />
+
+					<!-- <button
+						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
+					py-2 rounded-lg hover:cursor-pointer
+					hover:bg-gray-200/20 transition-colors duration-150'
+					>
+						<img
+							src='./icons/play.svg'
+							alt='GitHub icon'
+							class='w-6 h-6'
+						/>
+						<p>Video demo</p>
+
+					</button> -->
 				</div>
 			</div>
 		</article>
@@ -172,7 +193,7 @@ const i = getI18N({ currentLocale });
 							alt='GitHub icon'
 							class='w-6 h-6'
 						/>
-						<p>Guifre Link</p>
+						<p>Code</p>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							width='24'
