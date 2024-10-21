@@ -2,9 +2,9 @@
 import { getI18N } from "../i18n/index";
 
 const languagesMap = {
-  es: { language: "ES", link: "/" },
-  ca: { language: "CA", link: "/ca" },
-  en: { language: "EN", link: "/en" },
+	es: { language: "ES", link: "/" },
+	ca: { language: "CA", link: "/ca" },
+	en: { language: "EN", link: "/en" },
 };
 
 const { currentLocale } = Astro;
@@ -14,96 +14,110 @@ const LANGUAGES = ["ES", "CA", "EN"];
 ---
 
 <section>
-  <div class='selector'>
-    <a id='language'>{languagesMap[currentLocale].language}</a>
-    <span></span>
-  </div>
-  <div class='options'>
-    {
-      LANGUAGES.map((language) => {
-        if (language !== languagesMap[currentLocale].language) {
-          return <a href={languagesMap[language.toLowerCase()].link}>{language}</a>;
-        }
-      })
-    }
-  </div>
+	<div class='selector'>
+		<a id='language'>{languagesMap[currentLocale].language}</a>
+		<span></span>
+	</div>
+	<div class='options'>
+		{
+			LANGUAGES.map((language) => {
+				if (language !== languagesMap[currentLocale].language) {
+					return (
+						<a href={languagesMap[language.toLowerCase()].link}>
+							{language}
+						</a>
+					);
+				}
+			})
+		}
+	</div>
 </section>
 
 <style>
-  section {
-    position: relative;
-  }
-  .selector {
-    border: 1px solid transparent;
-    width: fit-content;
-    border-radius: 4px;
-    padding: 2px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    backdrop-filter: blur(20px);
+	section {
+		position: relative;
+	}
+	.selector {
+		border: 1px solid transparent;
+		width: fit-content;
+		border-radius: 4px;
+		padding: 2px 6px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
 
-    > p {
-      padding-inline: 4px;
-      font-size: 14px;
-    }
-  }
-  .selector:hover {
-    cursor: pointer;
-    border: 1px solid var(--color-yellow);
-  }
-  .selector:hover > p {
-    color: var(--color-yellow);
-  }
+		> p {
+			padding-inline: 4px;
+			font-size: 14px;
+		}
+	}
+	.selector:hover {
+		cursor: pointer;
+		border: 1px solid var(--color-yellow);
+	}
+	.selector:hover > p {
+		color: var(--color-yellow);
+	}
 
-  span {
-    background: url("./icons/down-arrow-white.svg") no-repeat center -11px;
-    width: 14px;
-    height: 14px;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-  }
-  .selector:hover > span {
-    background: url("./icons/down-arrow-yellow.svg") no-repeat center -10px;
-    width: 14px;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-  }
+	span {
+		background: url("./icons/down-arrow-white.svg") no-repeat center -11px;
+		width: 14px;
+		height: 14px;
+		aspect-ratio: 1/1;
+		object-fit: contain;
+	}
+	.selector:hover > span {
+		background: url("./icons/down-arrow-yellow.svg") no-repeat center -10px;
+		width: 14px;
+		aspect-ratio: 1/1;
+		object-fit: contain;
+	}
 
-  .options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    padding-block: 4px;
-  }
+	.options {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		border-top: none;
+		border-radius: 0 0 4px 4px;
+		display: none;
+		flex-direction: column;
+		gap: 4px;
+		padding-block: 4px;
+	}
 
-  section:hover .options {
-    display: flex;
-  }
+	section:hover .options {
+		display: flex;
+	}
 
-  .options > a {
-    padding: 2px 6px;
-    font-size: 14px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    backdrop-filter: blur(20px);
-    background-color: var(--color-blue-light);
-  }
+	.options > a {
+		padding: 2px 6px;
+		font-size: 14px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		animation: selector-background 0.5s linear both;
+		animation-timeline: scroll();
+		animation-range: 40px 150px;
+	}
 
-  .options > a:hover {
-    color: var(--color-yellow);
-    cursor: pointer;
-    border: 1px solid var(--color-yellow);
-  }
+	.options > a:hover {
+		color: var(--color-yellow);
+		cursor: pointer;
+		border: 1px solid var(--color-yellow);
+	}
 
-  .options--inactive {
-    display: none;
-  }
+	.options--inactive {
+		display: none;
+	}
+
+	@keyframes selector-background {
+		0% {
+			background-color: transparent;
+		}
+		100% {
+			background-color: rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(20px);
+		}
+	}
 </style>
