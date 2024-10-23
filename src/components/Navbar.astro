@@ -7,141 +7,101 @@ const { currentLocale } = Astro;
 const i = getI18N({ currentLocale });
 ---
 
-<nav>
-	<ul class='list'>
-		<li><a href='#experience'>{i.NAVBAR_LINK1}</a></li>
-		<li><a href='#projects'>{i.NAVBAR_LINK2}</a></li>
-		<li><a href='#about'>{i.NAVBAR_LINK3}</a></li>
-		<li><a href='mailto:guifreribas@gmail.com'>{i.NAVBAR_LINK4}</a></li>
-		<li class='selector'><Selector /></li>
-		<li class='languageMenu'><LanguageMenu /></li>
+<nav class='relative z-10 text-sm text-white'>
+	<ul
+		class='hidden pt-20 items-center justify-center navList fixed top-0 left-0 w-full md:flex flex-col gap-4 p-4 md:flex-row md:justify-center md:items-center md:gap-8 md:p-4'
+	>
+		<li>
+			<a
+				href='#experience'
+				class='hover:text-gf-yellow transition-all duration-300'
+				>{i.NAVBAR_LINK1}</a
+			>
+		</li>
+		<li>
+			<a
+				href='#projects'
+				class='hover:text-gf-yellow transition-all duration-300'
+				>{i.NAVBAR_LINK2}</a
+			>
+		</li>
+		<li>
+			<a
+				href='#about'
+				class='hover:text-gf-yellow transition-all duration-300'
+				>{i.NAVBAR_LINK3}</a
+			>
+		</li>
+		<li>
+			<a
+				href='mailto:guifreribas@gmail.com'
+				class='hover:text-gf-yellow transition-all duration-300'
+				>{i.NAVBAR_LINK4}</a
+			>
+		</li>
+		<!-- <li class='selector'><Selector /></li> -->
+		<!-- <li class='languageMenu'><LanguageMenu /></li> -->
 	</ul>
-	<img
-		class='burger icon--active'
-		src='/icons/menu-burger.svg'
-		alt='Menu burger icon'
-	/>
-	<img
-		class='close'
-		src='/icons/close.svg'
-		alt='Close menu icon'
-	/>
+	<div
+		class='md:hidden burgerContainer w-full fixed top-0 left-0 z-50 flex justify-end items-center p-4 backdrop-blur-sm'
+	>
+		<img
+			class='burger block md:hidden z-50 w-8 h-8 top-4 right-4 hover:cursor-pointer icon--active'
+			src='/icons/menu-burger.svg'
+			alt='Menu burger icon'
+		/>
+	</div>
 </nav>
 
 <script>
 	const menu = document.querySelector(".burger") as HTMLImageElement;
-	const close = document.querySelector(".close") as HTMLImageElement;
-	const ul = document.querySelector(".list") as HTMLUListElement;
+	const menuContainer = document.querySelector(
+		".burgerContainer"
+	) as HTMLDivElement;
+	const ul = document.querySelector(".navList") as HTMLUListElement;
 	const links = document.querySelectorAll("ul a");
 
 	menu.addEventListener("click", () => {
-		ul.classList.add("list--active");
-		menu.classList.remove("icon--active");
-		close.classList.add("icon--active");
-	});
+		ul.classList.toggle("hidden");
+		ul.classList.toggle("flex");
 
-	close.addEventListener("click", () => {
-		ul.classList.remove("list--active");
-		close.classList.remove("icon--active");
-		menu.classList.add("icon--active");
-	});
-
-	links.forEach((link) => {
-		link.addEventListener("click", () => {
-			ul.classList.remove("list--active");
-			close.classList.remove("icon--active");
-			menu.classList.add("icon--active");
-		});
+		menu.classList.toggle("text-gf-yellow");
+		menuContainer.classList.toggle("backdrop-blur-sm");
 	});
 </script>
 
 <style>
-	nav {
-		width: 100%;
-		margin: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-		top: 0;
-		z-index: 100;
-		position: fixed;
-	}
-
-	.list {
-		display: flex;
-		gap: 64px;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		padding: 16px 64px;
-		border-radius: 0 0 8px 8px;
+	.navList {
 		backdrop-filter: blur(20px);
-	}
-
-	a {
-		transition: color 0.3s ease-out;
-		text-wrap: nowrap;
-	}
-	a:hover {
-		width: fit-content;
-		height: fit-content;
-		color: var(--color-yellow);
-		cursor: pointer;
-	}
-
-	img {
-		width: 32px;
-		height: 32px;
-		display: none;
-		transition: scale 0.1s ease;
-	}
-
-	img:hover {
-		cursor: pointer;
-		scale: 1.1;
+		animation: nav-background 0.5s linear both;
+		animation-timeline: scroll();
+		animation-range: 40px 150px;
 	}
 
 	.languageMenu {
 		display: none;
 	}
 
-	@media screen and (width < 768px) {
-		nav {
-			position: fixed;
-			justify-content: flex-end;
-			backdrop-filter: blur(20px);
-			padding: 12px 36px;
-		}
-		a {
-			font-size: 1rem;
-		}
-		.list {
-			position: absolute;
-			top: 0;
-			padding-block: 42px;
-			right: -130vw;
-			flex-direction: column;
-			gap: 16px;
-			max-width: unset;
-			background-color: rgba(0, 0, 0, 0.8);
-			backdrop-filter: blur(20px);
-			transition: all 0.4s ease-in;
-			z-index: -1;
-		}
-		.list--active {
-			right: 0;
-		}
-
-		.selector {
-			display: none;
-		}
-		.languageMenu {
-			display: block;
-			margin-top: 12px;
-		}
+	@media screen and (width <= 768px) {
 		.icon--active {
 			display: block;
+		}
+
+		.burgerContainer {
+			/* backdrop-filter: blur(20px); */
+
+			animation: nav-background 0.5s linear both;
+			animation-timeline: scroll();
+			animation-range: 40px 150px;
+		}
+	}
+
+	@keyframes nav-background {
+		0% {
+			background-color: transparent;
+		}
+		100% {
+			background-color: rgba(0, 0, 0, 0.6);
 		}
 	}
 </style>
