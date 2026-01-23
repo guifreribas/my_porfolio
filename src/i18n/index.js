@@ -8,9 +8,9 @@ export const LANGUAGES = {
   es: spanish,
 };
 
-export const getI18N = ({ currentLocale = "ca" }) => {
+export const getI18N = ({ currentLocale = "es" }) => {
   const i18n = LANGUAGES[currentLocale];
   return i18n;
 };
 
-export const defaultLang = "ca";
+export const defaultLang = "es";
