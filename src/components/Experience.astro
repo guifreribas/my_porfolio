@@ -9,62 +9,61 @@ const i18n = getI18N({ currentLocale });
 const experiences = [
 	{
 		company: "Vueling Airlines",
-		role: i18n.PRESENTATION_POSITION + " (via Hola Consultores)",
+		role: "Frontend Developer",
 		date: `Nov 2024 - ${i18n.EXPERIENCE_PRESENT}`,
 		description: i18n.EXPERIENCE_DESCRIPTION_VUELING,
+		isCurrent: true,
 		points:
 			currentLocale === "ca"
 				? [
-						"Desenvolupament d'aplicacions Angular de gran trànsit i escalables.",
-						"Implementació de millors pràctiques i qualitat de codi en un entorn empresarial.",
-						"Col·laboració amb equips multidisciplinaris per lliurar solucions robustes.",
-						"Enfocament en el rendiment i el manteniment.",
+						"Desenvolupament d'aplicacions Angular d'alt rendiment.",
+						"Implementació d'estàndards de qualitat enterprise.",
+						"Optimització de fluxos de dades complexos.",
+						"Col·laboració en equips d'alt rendiment.",
 					]
 				: currentLocale === "es"
 					? [
-							"Desarrollo de aplicaciones Angular de alto tráfico y escalables.",
-							"Implementación de mejores prácticas y calidad de código en un entorno empresarial.",
-							"Colaboración con equipos multidisciplinarios para entregar soluciones robustas.",
-							"Enfoque en el rendimiento y la mantenibilidad.",
+							"Desarrollo de aplicaciones Angular de alto rendimiento.",
+							"Implementación de estándares de calidad enterprise.",
+							"Optimización de flujos de datos complejos.",
+							"Colaboración en equipos de alto rendimiento.",
 						]
 					: [
-							"Development of scalable high-traffic Angular applications.",
-							"Implementation of best practices and code quality in an enterprise environment.",
-							"Collaboration with cross-functional teams to deliver robust solutions.",
-							"Focus on performance and maintainability.",
+							"<strong>High-Impact Development:</strong> Developing scalable, <strong>high-traffic Angular applications</strong> ensuring stability for thousands of daily users.",
+							"<strong>Enterprise Standards:</strong> Implementing rigorous code quality practices and best practices in a complex enterprise environment.",
+							"<strong>Agile Collaboration:</strong> Working within cross-functional teams (Desktop, Mobile, UX) under strict <strong>Agile/Scrum</strong> methodologies to deliver robust solutions.",
 						],
-		colorClass: "bg-primary",
-		titleColor: "text-primary",
+		colorClass: "bg-yellow-500",
+		titleColor: "text-yellow-500",
 		icon: "flight_takeoff",
 	},
 	{
 		company: "Brothapps",
-		role: i18n.PRESENTATION_POSITION,
-		date: "Oct 2021 - Feb 2024",
+		role: "Full-Cycle Frontend Developer",
+		date: `Oct 2021 - Oct 2024`,
 		description: i18n.EXPERIENCE_DESCRIPTION_BROTHAPPS,
 		points:
 			currentLocale === "ca"
 				? [
-						"Participació en la creació de web apps amb Next.js.",
-						"Desenvolupament d'interfícies d'administració per a productes digitals.",
-						"Integració de Firebase, Firestore i Stripe.",
-						"Refactorització de codi per a escalabilitat i llegibilitat.",
-						"Desenvolupament de pàgines d'aterratge amb Astro i metodologia BEM.",
+						"Participació en la creació de web apps escalables amb Next.js.",
+						"Disseny i desenvolupament d'interfícies d'administració avançades.",
+						"Arquitectura full-stack integrant Firebase i Stripe.",
+						"Refactorització estratègica per a l'optimització del rendiment.",
+						"Lideratge tècnic en projectes amb metodologia Agile.",
 					]
 				: currentLocale === "es"
 					? [
-							"Participación en la creación de web apps con Next.js.",
-							"Desarrollo de interfaces de administración para productos digitales.",
-							"Integración de Firebase, Firestore y Stripe.",
-							"Refactorización de código para escalabilidad y legibilidad.",
-							"Desarrollo de landing pages con Astro y metodología BEM.",
+							"Participación en la creación de web apps escalables con Next.js.",
+							"Diseño y desarrollo de interfaces de administración avanzadas.",
+							"Arquitectura full-stack integrando Firebase y Stripe.",
+							"Refactorización estratégica para la optimización del rendimiento.",
+							"Liderazgo técnico en proyectos con metodología Agile.",
 						]
 					: [
-							"Participated in the creation of web apps with Next.js.",
-							"Developed admin interfaces for digital products.",
-							"Integration of Firebase, Firestore, and Stripe.",
-							"Code refactoring for scalability and readability.",
-							"Development of landing pages with Astro and BEM methodology.",
+							"<strong>Core Development:</strong> Built and maintained scalable web apps using <strong>Next.js</strong> and <strong>Astro</strong>, ensuring high performance and SEO optimization.",
+							"<strong>Integrations:</strong> Implemented critical third-party services including <strong>Stripe</strong> for payments and <strong>Firebase/Firestore</strong> for real-time data.",
+							"<strong>Code Quality:</strong> Refactored legacy codebases to improve maintainability and performance (Clean Code & BEM methodology).",
+							"<strong>Admin Tools:</strong> Developed custom dashboard interfaces for internal product management.",
 						],
 		colorClass: "bg-blue-600",
 		titleColor: "text-blue-600",

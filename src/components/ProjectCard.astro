@@ -9,8 +9,9 @@ interface Link {
 interface Props {
 	title: string;
 	description: string;
+	insight?: string;
 	image: string;
-	tech?: string;
+	tags?: string[];
 	links: Link[];
 	reverse?: boolean; // To alternate layout if needed, though grid handles it usually
 	colorClass?: string; // Text color for title
@@ -19,7 +20,9 @@ interface Props {
 const {
 	title,
 	description,
+	insight,
 	image,
+	tags = [],
 	links,
 	colorClass = "text-primary",
 } = Astro.props;
@@ -49,11 +52,37 @@ const hoverColorClass =
 
 	<!-- Content Section -->
 	<div class='p-8 flex flex-col justify-center'>
-		<h3 class={`text-2xl font-bold ${colorClass} mb-3`}>{title}</h3>
+		<h3 class={`text-2xl font-bold ${colorClass} mb-1`}>{title}</h3>
+		{
+			tags.length > 0 && (
+				<div class='flex flex-wrap gap-2 mb-4'>
+					{tags.map((tag) => (
+						<span class='px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold text-gray-600 dark:text-gray-400 rounded border border-gray-200 dark:border-gray-700 uppercase tracking-wider'>
+							{tag}
+						</span>
+					))}
+				</div>
+			)
+		}
 		<div
 			class='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm'
 			set:html={description}
 		/>
+
+		{
+			insight && (
+				<div class='mb-6 p-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 font-mono relative overflow-hidden'>
+					<div class='absolute top-0 left-0 w-1 h-full bg-gray-300 dark:bg-gray-600' />
+					<span class='block text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2 font-bold'>
+						Technical Insight
+					</span>
+					<p
+						set:html={insight}
+						class='leading-relaxed'
+					/>
+				</div>
+			)
+		}
 
 		<div class='flex flex-wrap gap-3'>
 			{

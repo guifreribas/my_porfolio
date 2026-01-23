@@ -7,6 +7,7 @@ interface Props {
 	points: string[];
 	colorClass?: string;
 	icon?: string;
+	isCurrent?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
 	points,
 	colorClass = "bg-primary", // Default to primary yellow
 	icon = "laptop_mac",
+	isCurrent = false,
 } = Astro.props;
 
 // Map simple color names to tailwind classes if needed, or pass full classes.
@@ -29,12 +31,19 @@ const titleColorClass =
 ---
 
 <div
-	class='bg-card-light dark:bg-card-dark p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 relative hover:border-primary/50 transition-colors group'
+	class={`bg-card-light dark:bg-card-dark p-6 sm:p-8 rounded-2xl shadow-lg border relative transition-colors group ${isCurrent ? "border-primary dark:border-primary/60 ring-1 ring-primary/10" : "border-gray-200 dark:border-gray-800 hover:border-primary/50"}`}
 >
 	<div
 		class={`absolute top-6 left-0 w-1 h-12 ${colorClass} rounded-r-md group-hover:h-24 transition-all duration-300`}
 	>
 	</div>
+	{
+		isCurrent && (
+			<div class='absolute -top-3 right-6 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider'>
+				Current
+			</div>
+		)
+	}
 	<div class='pl-4'>
 		<div class='flex justify-between items-start mb-4'>
 			<div>
@@ -42,7 +51,7 @@ const titleColorClass =
 					{company}
 				</h3>
 				<p
-					class='text-sm text-gray-500 dark:text-gray-400 font-mono mt-1'
+					class='text-xs font-bold tracking-wider text-primary uppercase bg-primary/10 px-3 py-1 rounded-full inline-block mt-2 mb-1 border border-primary/20 transition-all group-hover:bg-primary group-hover:text-black'
 				>
 					{date}
 				</p>
@@ -59,13 +68,14 @@ const titleColorClass =
 				>{icon}</span
 			>
 		</div>
-		<p class='text-sm text-gray-600 dark:text-gray-400 mb-4 italic'>
-			{description}
-		</p>
+		<p
+			class='text-sm text-gray-600 dark:text-gray-400 mb-4'
+			set:html={description}
+		/>
 		<ul
 			class='space-y-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside marker:text-primary'
 		>
-			{points.map((point) => <li>{point}</li>)}
+			{points.map((point) => <li set:html={point} />)}
 		</ul>
 	</div>
 </div>
