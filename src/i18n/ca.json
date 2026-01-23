@@ -52,5 +52,8 @@
 	"EXPERIENCE_PRESENT": "Actualitat",
 	"EXPERIENCE_DESCRIPTION_VUELING": "Desenvolupament d'aplicacions d'alt trànsit en un entorn empresarial.",
 	"EXPERIENCE_DESCRIPTION_BROTHAPPS": "Empresa de disseny i desenvolupament de productes digitals.",
-	"FOOTER_RIGHTS": "Tots els drets reservats."
+	"FOOTER_RIGHTS": "Tots els drets reservats.",
+	"STATUS_TITLE": "ESTAT ACTUAL",
+	"STATUS_VALUE": "Open to Work",
+	"STATUS_LOCATION": "Barcelona / Remot"
 }
