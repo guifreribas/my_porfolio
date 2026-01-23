@@ -1,44 +1,63 @@
 ---
-import { getI18N } from "../i18n/index";
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
 
-const { currentLocale } = Astro;
-const i = getI18N({ currentLocale });
+const currentLocale = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale });
 ---
 
-<article class='relative mb-32'>
+<section
+	id='about'
+	class='grid grid-cols-1 gap-6 mb-20'
+>
 	<div
-		id='about'
-		class='absolute -top-14'
+		class='bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800'
 	>
+		<h2
+			class='text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-200 dark:border-gray-800 pb-4'
+		>
+			{i18n.ABOUT_TITLE}
+		</h2>
+		<div
+			class='text-gray-600 dark:text-gray-300 space-y-4 leading-relaxed text-sm md:text-base'
+		>
+			<p>
+				<span class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_1.split(",")[0]}</span
+				>{
+					i18n.ABOUT_DESCRIPTION_1.includes(",")
+						? "," + i18n.ABOUT_DESCRIPTION_1.split(",")[1]
+						: ""
+				}{i18n.ABOUT_DESCRIPTION_2}{
+					i18n.ABOUT_DESCRIPTION_3.includes("2002") ? "2002, " : ""
+				}<span class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_3.replace("2002, ", "")}</span
+				>{i18n.ABOUT_DESCRIPTION_4}<span
+					class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_5}</span
+				>.
+			</p>
+			<p>
+				{i18n.ABOUT_DESCRIPTION_6}<span
+					class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_7}</span
+				>{i18n.ABOUT_DESCRIPTION_8}<span
+					class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_9}</span
+				>{i18n.ABOUT_DESCRIPTION_10}
+			</p>
+			<p>
+				{i18n.ABOUT_DESCRIPTION_11}<span
+					class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_12}</span
+				>{i18n.ABOUT_DESCRIPTION_13}<span
+					class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_14}</span
+				>{i18n.ABOUT_DESCRIPTION_15}
+				<span class='text-primary font-semibold'
+					>{i18n.ABOUT_DESCRIPTION_16}</span
+				>.
+			</p>
+		</div>
 	</div>
-	<h2
-		class='text-4xl font-semibold mb-16 underline underline-offset-8 decoration-1 decoration-gf-yellow'
-	>
-		{i.ABOUT_TITLE}
-	</h2>
-	<section class='flex flex-col gap-4 text-balance'>
-		<p>
-			<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_1}</span>{
-				i.ABOUT_DESCRIPTION_2
-			}<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_3}</span>{
-				i.ABOUT_DESCRIPTION_4
-			}<span class='text-gf-brown'>{i.ABOUT_DESCRIPTION_5}</span>.
-		</p>
-		<p>
-			{i.ABOUT_DESCRIPTION_6}<span class='text-gf-brown'
-				>{i.ABOUT_DESCRIPTION_7}</span
-			>{i.ABOUT_DESCRIPTION_8}<span class='text-gf-brown'
-				>{i.ABOUT_DESCRIPTION_9}</span
-			>{i.ABOUT_DESCRIPTION_10}
-		</p>
-		<p>
-			{i.ABOUT_DESCRIPTION_11}<span class='text-gf-brown'
-				>{i.ABOUT_DESCRIPTION_12}</span
-			>{i.ABOUT_DESCRIPTION_13}<span class='text-gf-brown'
-				>{i.ABOUT_DESCRIPTION_14}</span
-			>{i.ABOUT_DESCRIPTION_15}<span class='text-gf-brown'
-				>{i.ABOUT_DESCRIPTION_16}</span
-			>.
-		</p>
-	</section>
-</article>
+</section>

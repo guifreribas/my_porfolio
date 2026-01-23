@@ -1,21 +1,88 @@
 ---
-import { getI18N } from "../i18n/index";
 import ExperienceItem from "./ExperienceItem.astro";
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
 
-const { currentLocale } = Astro;
-const i = getI18N({ currentLocale });
+const currentLocale = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale });
+
+const experiences = [
+	{
+		company: "Vueling Airlines",
+		role: i18n.PRESENTATION_POSITION + " (via Hola Consultores)",
+		date: `Nov 2024 - ${i18n.EXPERIENCE_PRESENT}`,
+		description: i18n.EXPERIENCE_DESCRIPTION_VUELING,
+		points:
+			currentLocale === "ca"
+				? [
+						"Desenvolupament d'aplicacions Angular de gran trànsit i escalables.",
+						"Implementació de millors pràctiques i qualitat de codi en un entorn empresarial.",
+						"Col·laboració amb equips multidisciplinaris per lliurar solucions robustes.",
+						"Enfocament en el rendiment i el manteniment.",
+					]
+				: currentLocale === "es"
+					? [
+							"Desarrollo de aplicaciones Angular de alto tráfico y escalables.",
+							"Implementación de mejores prácticas y calidad de código en un entorno empresarial.",
+							"Colaboración con equipos multidisciplinarios para entregar soluciones robustas.",
+							"Enfoque en el rendimiento y la mantenibilidad.",
+						]
+					: [
+							"Development of scalable high-traffic Angular applications.",
+							"Implementation of best practices and code quality in an enterprise environment.",
+							"Collaboration with cross-functional teams to deliver robust solutions.",
+							"Focus on performance and maintainability.",
+						],
+		colorClass: "bg-primary",
+		titleColor: "text-primary",
+		icon: "flight_takeoff",
+	},
+	{
+		company: "Brothapps",
+		role: i18n.PRESENTATION_POSITION,
+		date: "Oct 2021 - Feb 2024",
+		description: i18n.EXPERIENCE_DESCRIPTION_BROTHAPPS,
+		points:
+			currentLocale === "ca"
+				? [
+						"Participació en la creació de web apps amb Next.js.",
+						"Desenvolupament d'interfícies d'administració per a productes digitals.",
+						"Integració de Firebase, Firestore i Stripe.",
+						"Refactorització de codi per a escalabilitat i llegibilitat.",
+						"Desenvolupament de pàgines d'aterratge amb Astro i metodologia BEM.",
+					]
+				: currentLocale === "es"
+					? [
+							"Participación en la creación de web apps con Next.js.",
+							"Desarrollo de interfaces de administración para productos digitales.",
+							"Integración de Firebase, Firestore y Stripe.",
+							"Refactorización de código para escalabilidad y legibilidad.",
+							"Desarrollo de landing pages con Astro y metodología BEM.",
+						]
+					: [
+							"Participated in the creation of web apps with Next.js.",
+							"Developed admin interfaces for digital products.",
+							"Integration of Firebase, Firestore, and Stripe.",
+							"Code refactoring for scalability and readability.",
+							"Development of landing pages with Astro and BEM methodology.",
+						],
+		colorClass: "bg-blue-600",
+		titleColor: "text-blue-600",
+		icon: "laptop_mac",
+	},
+];
 ---
 
-<article class='section relative mb-32'>
-	<div
-		id='experience'
-		class='absolute -top-14'
-	>
-	</div>
+<section
+	id='experience'
+	class='grid grid-cols-1 lg:grid-cols-2 gap-6'
+>
 	<h2
-		class='text-4xl font-semibold mb-16 underline underline-offset-8 decoration-1 decoration-gf-yellow'
+		class='col-span-1 lg:col-span-2 text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-4 mb-2 flex items-center'
 	>
-		{i.EXPERIENCE_TITLE}
+		{i18n.EXPERIENCE_TITLE}
+		<span class='ml-2 w-2 h-2 bg-primary rounded-full'></span>
 	</h2>
-	<ExperienceItem />
-</article>
+
+	{experiences.map((exp) => <ExperienceItem {...exp} />)}
+</section>

@@ -1,274 +1,55 @@
 ---
-import { getI18N } from "../i18n/index";
-import ExperienceItem from "./ExperienceItem.astro";
-import VideoModal from "./VideoModal.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
 
-const { currentLocale } = Astro;
-const i = getI18N({ currentLocale });
+const currentLocale = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale });
+
+const projects = [
+	{
+		title: "Pro Match",
+		description: i18n.PROJECTS_PRO_MATCH_DESC,
+		image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAdVkAtsapOjLgCLQBzE2KWsOWZKf9-pMEE0McOH3OwDPDWW9yAIB60PF302LwSxXg38HV5i--Yb1JyIstho6UBrkrutpKAUVp9_b0NhGGzn5GJ80z1ThCbMhdpX5vD0p_Io7MUiF6hkrlVHk6SXR9Tf4s9-_LYA7q3Ji3wPLPUUGUqt0R4oYSvTygUYWS4cJybYiCAfyVLnS3eJiWtADMTkenE-f46KmnaUvG5RULKGDqbqgsNjaqhCfPkcuTHezqY_0XAd0MH-DE",
+		links: [
+			{ text: i18n.PROJECTS_FRONTEND_CODE, href: "#", isCode: true },
+			{ text: i18n.PROJECTS_BACKEND_CODE, href: "#", isCode: true },
+			{ text: i18n.PROJECTS_VIDEO_DEMO, href: "#", icon: "play_circle" },
+		],
+		colorClass: "text-primary",
+	},
+	{
+		title: "Guifre Link",
+		description: i18n.PROJECTS_GUIFRE_LINK_DESC,
+		image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDGZxrrMM4VKgC1Y4BDNOuybmZ-Nhsw5tMtBOMmGmeUhAD6OIfEfpPcNn_kObqA8yhtMBiMVqcQzFnjDy-R1Y09ypWVfMUXUwiy7347dMYoYJu7e1OG7-WqnX38wSM0ggvzdwce-LpC_DtdnnznjSaJkthluPJTRahPomvpbkWPgXH41qlnzQV2Ut7Zj-4yU1Qq8rh-F87nnhBdXC5x6XLzSZqWIhgkRk3GnwJG1S2jZ7nxfpqPK4mygt3rYd_EKF67Zhh3cDi7SRQ",
+		links: [
+			{ text: i18n.PROJECTS_GO_TO_WEB, href: "#", icon: "language" },
+			{ text: i18n.PROJECTS_CODE, href: "#", isCode: true },
+		],
+		colorClass: "text-yellow-500",
+	},
+	{
+		title: "Vicobook",
+		description: i18n.PROJECTS_VICOBOOK_DESC,
+		image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC2BOuXce6YqlFotQqapP7CbCbKigp-F8V4oC4dI96MOBsCB8npFPmlYg6hG0UBjUaGkEKEtm9s3b3jTGu9377UBy1x5B8ZpYW0pLhCnHuNuVaPZUHDOGE8DMkRl2d-ViqaBf5GIQ3JayLZMD4RbBHn9vDg0c8RPxN6srKb08AJV-PDNRUqbDXUFqRrCa86Z1GZsrR3sB-Io73_-RWgIbzaF3Uhm_L1V-C2a78-OxxV0RJThkxb5Pi6lbw7cpgdaLo5FpTC9w2eWSE",
+		links: [{ text: i18n.PROJECTS_MORE_INFO, href: "#", icon: "language" }],
+		colorClass: "text-primary",
+	},
+];
 ---
 
-<article class='section relative mb-32'>
-	<div
-		id='projects'
-		class='absolute -top-14'
-	>
-	</div>
+<section
+	id='projects'
+	class='py-6'
+>
 	<h2
-		class='text-4xl font-semibold mb-16 underline underline-offset-8 decoration-1 decoration-gf-yellow'
+		class='text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-4 mb-8 flex items-center'
 	>
-		{i.PROJECTS_TITLE}
+		{i18n.PROJECTS_TITLE}
+		<span class='ml-2 w-2 h-2 bg-primary rounded-full'></span>
 	</h2>
-	<section class='flex flex-col gap-24'>
-		<article class='grid md:grid-cols-5 gap-16'>
-			<div class='w-full flex flex-col gap-4 md:col-span-2'>
-				<img
-					src='./images/pro_match_players.png'
-					alt='Pro Match Player Screenshot'
-					class='w-full rounded-lg'
-				/>
-			</div>
-			<div class='flex flex-col gap-4 md:col-span-3'>
-				<h3 class='text-2xl font-semibold text-gf-yellow'>Pro Match</h3>
-				<section class='flex flex-col gap-2 mb-4'>
-					<p class='text-gray-300 text-balance'>
-						Actualmente desarrollo una web app en fase MVP. El
-						frontend está hecho con Angular 18 y Tailwind CSS,
-						mientras que el backend utiliza Node.js, Express y
-						Sequelize con MySQL.
-					</p>
-					<p class='text-gray-300 text-balance'>
-						La plataforma permite crear y gestionar ligas de fútbol
-						sala. Ya es posible crear ligas de ida y vuelta, y sigo
-						añadiendo mejoras y nuevas funcionalidades.
-					</p>
-				</section>
 
-				<div class='grid sm:grid-cols-2 gap-4'>
-					<a
-						href='https://github.com/guifreribas/pro_match_app'
-						target='_blank'
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/github.svg'
-							alt='GitHub icon'
-							class='w-6 h-6'
-						/>
-						<p>Frontend code</p>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							class='w-4 h-4'
-							><path
-								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
-							></path><path d='m21 3-9 9'></path><path
-								d='M15 3h6v6'></path></svg
-						>
-					</a>
-
-					<a
-						href='https://github.com/guifreribas/pro_match_api'
-						target='_blank'
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/github.svg'
-							alt='GitHub icon'
-							class='w-6 h-6'
-						/>
-						<p>Backend code</p>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							class='w-4 h-4'
-							><path
-								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
-							></path><path d='m21 3-9 9'></path><path
-								d='M15 3h6v6'></path></svg
-						>
-					</a>
-
-					<VideoModal />
-
-					<!-- <button
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/play.svg'
-							alt='GitHub icon'
-							class='w-6 h-6'
-						/>
-						<p>Video demo</p>
-
-					</button> -->
-				</div>
-			</div>
-		</article>
-
-		<article class='grid md:grid-cols-5 gap-16'>
-			<div class='w-full flex flex-col gap-4 md:col-span-2'>
-				<img
-					src='./images/guifre_link_screen.png'
-					alt='Pro Match Player Screenshot'
-					class='w-full rounded-lg'
-				/>
-			</div>
-			<div class='w-full flex flex-col gap-4 md:col-span-3'>
-				<h3 class='text-2xl font-semibold text-gf-yellow'>
-					Guifre Link
-				</h3>
-				<section class='flex flex-col gap-2 mb-4'>
-					<p class='text-gray-300 text-balance'>
-						He desarrollado una web app para acortar URLs de forma
-						rápida. Está hecha con Next.js 14 y usa MongoDB para
-						almacenar las URLs.
-					</p>
-					<p class='text-gray-300 text-balance'>
-						Esta primera versión permite crear y redirigir URLs
-						acortadas. Estoy trabajando en añadir seguimiento de
-						clics y caducidad de URLs.
-					</p>
-				</section>
-
-				<div class='grid sm:grid-cols-2 gap-4'>
-					<a
-						href='https://guifre.link'
-						target='_blank'
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/world.svg'
-							alt='World icon'
-							class='w-6 h-6'
-						/>
-						<p>Ir a la web</p>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							class='w-4 h-4'
-							><path
-								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
-							></path><path d='m21 3-9 9'></path><path
-								d='M15 3h6v6'></path></svg
-						>
-					</a>
-					<a
-						href='https://github.com/guifreribas/guifre_link'
-						target='_blank'
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/github.svg'
-							alt='GitHub icon'
-							class='w-6 h-6'
-						/>
-						<p>Code</p>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							class='w-4 h-4'
-							><path
-								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
-							></path><path d='m21 3-9 9'></path><path
-								d='M15 3h6v6'></path></svg
-						>
-					</a>
-				</div>
-			</div>
-		</article>
-
-		<article class='grid md:grid-cols-5 gap-16'>
-			<div class='flex flex-col gap-4 md:col-span-2'>
-				<img
-					src='./images/vicobook_coread.webp'
-					alt='Pro Match Player Screenshot'
-					class='w-full rounded-lg'
-				/>
-			</div>
-			<div class='flex flex-col gap-4 md:col-span-3'>
-				<h3 class='text-2xl font-semibold text-gf-yellow'>Vicobook</h3>
-				<p class='text-gray-300 text-balance'>
-					He trabajado en el frontend de una web app para crear
-					proyectos de escritura colaborativa en tiempo real, a través
-					de la empresa Brothapps.
-				</p>
-				<p class='text-gray-300 text-balance mb-4'>
-					El proyecto está desarrollado con Next.js 12 y Chakra UI,
-					ofreciendo una interfaz fluida y funcional para la
-					colaboración simultánea.
-				</p>
-
-				<div class='grid sm:grid-cols-2 gap-4'>
-					<a
-						href='https://brothapps.com/es/products/vicobook/'
-						target='_blank'
-						class='w-full flex flex-row items-center justify-center gap-4 bg-gray-200/10 px-4
-					py-2 rounded-lg hover:cursor-pointer
-					hover:bg-gray-200/20 transition-colors duration-150'
-					>
-						<img
-							src='./icons/world.svg'
-							alt='World icon'
-							class='w-6 h-6'
-						/>
-						<p>Más información</p>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							class='w-4 h-4'
-							><path
-								d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'
-							></path><path d='m21 3-9 9'></path><path
-								d='M15 3h6v6'></path></svg
-						>
-					</a>
-				</div>
-			</div>
-		</article>
-	</section>
-</article>
+	<div class='grid grid-cols-1 gap-8'>
+		{projects.map((project) => <ProjectCard {...project} />)}
+	</div>
+</section>

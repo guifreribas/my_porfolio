@@ -1,29 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+	darkMode: "class",
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
 			colors: {
-				"gf-yellow": "#e6c339",
-				"gf-brown": "#a69553",
-				"gf-blue": "#0b0d3f",
-				"gf-purple": "#545791",
-				"gf-gray": "#66614d",
+				primary: "#FBBF24", // Yellow/Gold accent
+				"background-light": "#F3F4F6", // Gray-100
+				"background-dark": "#0B0C15", // Deep dark blue/charcoal
+				"card-dark": "#151621",
+				"card-light": "#FFFFFF",
+				"accent-blue": "#3B82F6",
 			},
 			fontFamily: {
-				body: ["NunitoSans", "sans-serif"],
-				headers: ["Onest", "sans-serif"],
+				sans: ["Inter", "sans-serif"],
+				display: ["Inter", "sans-serif"],
+				body: ["Inter", "sans-serif"],
 			},
-			keyframes: {
-				"slide-in": {
-					"0%": { transform: "translateY(20%)", opacity: 0 },
-					"100%": { transform: "translateY(0)", opacity: 1 },
-				},
-			},
-			animation: {
-				"slide-in": "slide-in 0.6s ease-in-out forwards",
+			borderRadius: {
+				DEFAULT: "0.75rem", // Rounded-xl
+				"2xl": "1rem",
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

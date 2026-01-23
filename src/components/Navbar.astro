@@ -1,107 +1,77 @@
 ---
-import Selector from "./Selector.astro";
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
 import LanguageMenu from "./LanguageMenu.astro";
-import { getI18N } from "../i18n/index";
 
-const { currentLocale } = Astro;
-const i = getI18N({ currentLocale });
+const currentLocale = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale });
+
+const links = [
+	{ text: i18n.NAVBAR_LINK1, href: "#experience" },
+	{ text: i18n.NAVBAR_LINK2, href: "#projects" },
+	{ text: i18n.NAVBAR_LINK3, href: "#about" },
+];
 ---
 
-<nav class='relative z-10 text-sm text-white'>
-	<ul
-		class='pt-20 items-center justify-center navList fixed top-0 left-0 w-full md:flex flex-col gap-4 p-4 md:flex-row md:justify-center md:items-center md:gap-8 md:p-4'
-	>
-		<li>
-			<a
-				href='#experience'
-				class='hover:text-gf-yellow transition-all duration-300'
-				>{i.NAVBAR_LINK1}</a
-			>
-		</li>
-		<li>
-			<a
-				href='#projects'
-				class='hover:text-gf-yellow transition-all duration-300'
-				>{i.NAVBAR_LINK2}</a
-			>
-		</li>
-		<li>
-			<a
-				href='#about'
-				class='hover:text-gf-yellow transition-all duration-300'
-				>{i.NAVBAR_LINK3}</a
-			>
-		</li>
-		<li>
-			<a
-				href='mailto:guifreribas@gmail.com'
-				class='hover:text-gf-yellow transition-all duration-300'
-				>{i.NAVBAR_LINK4}</a
-			>
-		</li>
-		<!-- <li class='selector'><Selector /></li> -->
-		<!-- <li class='languageMenu'><LanguageMenu /></li> -->
-	</ul>
-	<div
-		class='md:hidden burgerContainer w-full fixed top-0 left-0 z-50 flex justify-end items-center p-4 backdrop-blur-sm'
-	>
-		<img
-			class='burger block md:hidden z-50 w-8 h-8 top-4 right-4 hover:cursor-pointer icon--active'
-			src='/icons/menu-burger.svg'
-			alt='Menu burger icon'
-		/>
+<nav
+	class='sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-background-dark/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300'
+>
+	<div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+		<div class='flex items-center justify-between h-16'>
+			<div class='flex-shrink-0'>
+				<a
+					href='#'
+					class='text-xl font-bold text-gray-900 dark:text-white tracking-tight'
+				>
+					Guifré<span class='text-primary'>.dev</span>
+				</a>
+			</div>
+			<div class='hidden md:block'>
+				<div class='ml-10 flex items-baseline space-x-8'>
+					{
+						links.map((link) => (
+							<a
+								href={link.href}
+								class='hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-gray-300'
+							>
+								{link.text}
+							</a>
+						))
+					}
+				</div>
+			</div>
+			<div class='flex items-center space-x-4'>
+				<LanguageMenu />
+				<button
+					id='theme-toggle'
+					class='p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors'
+					aria-label='Toggle Dark Mode'
+				>
+					<span
+						class='material-icons-outlined text-gray-600 dark:text-gray-300'
+						>dark_mode</span
+					>
+				</button>
+			</div>
+		</div>
 	</div>
 </nav>
 
-<script>
-	const menu = document.querySelector(".burger") as HTMLImageElement;
-	const menuContainer = document.querySelector(
-		".burgerContainer"
-	) as HTMLDivElement;
-	const ul = document.querySelector(".navList") as HTMLUListElement;
-	const links = document.querySelectorAll("ul a");
+<script is:inline>
+	const themeToggleBtn = document.getElementById("theme-toggle");
 
-	menu.addEventListener("click", () => {
-		ul.classList.toggle("hidden");
-		ul.classList.toggle("flex");
+	// Toggle theme function
+	const toggleTheme = () => {
+		if (document.documentElement.classList.contains("dark")) {
+			document.documentElement.classList.remove("dark");
+			localStorage.theme = "light";
+		} else {
+			document.documentElement.classList.add("dark");
+			localStorage.theme = "dark";
+		}
+	};
 
-		menu.classList.toggle("text-gf-yellow");
-		menuContainer.classList.toggle("backdrop-blur-sm");
-	});
+	if (themeToggleBtn) {
+		themeToggleBtn.addEventListener("click", toggleTheme);
+	}
 </script>
-
-<style>
-	.navList {
-		backdrop-filter: blur(20px);
-		animation: nav-background 0.5s linear both;
-		animation-timeline: scroll();
-		animation-range: 40px 150px;
-	}
-
-	.languageMenu {
-		display: none;
-	}
-
-	@media screen and (width <= 768px) {
-		.icon--active {
-			display: block;
-		}
-
-		.burgerContainer {
-			/* backdrop-filter: blur(20px); */
-
-			animation: nav-background 0.5s linear both;
-			animation-timeline: scroll();
-			animation-range: 40px 150px;
-		}
-	}
-
-	@keyframes nav-background {
-		0% {
-			background-color: transparent;
-		}
-		100% {
-			background-color: rgba(0, 0, 0, 0.6);
-		}
-	}
-</style>

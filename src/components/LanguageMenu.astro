@@ -1,23 +1,34 @@
-<section>
-  <ul>
-    <li><a href='/'>ES</a></li>
-    <li><a href='/ca'>CA</a></li>
-    <li><a href='/en'>EN</a></li>
-  </ul>
-</section>
+---
+import { changeLang, getLangFromUrl } from "../i18n/utils";
 
-<style>
-  ul {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-  a {
-    font-size: 1rem;
-  }
+const currentLang = getLangFromUrl(Astro.url);
+const languages = [
+	{ code: "ca", label: "CA" },
+	{ code: "es", label: "ES" },
+	{ code: "en", label: "EN" },
+];
+---
 
-  a:hover {
-    color: var(--color-yellow);
-    cursor: pointer;
-  }
-</style>
+<div class='flex items-center space-x-2'>
+	{
+		languages.map((lang, index) => (
+			<>
+				<a
+					href={changeLang(Astro.url, lang.code)}
+					class={`text-xs font-bold transition-colors hover:text-primary ${
+						currentLang === lang.code
+							? "text-primary"
+							: "text-gray-500 dark:text-gray-400"
+					}`}
+				>
+					{lang.label}
+				</a>
+				{index < languages.length - 1 && (
+					<span class='text-gray-300 dark:text-gray-700 text-xs'>
+						|
+					</span>
+				)}
+			</>
+		))
+	}
+</div>

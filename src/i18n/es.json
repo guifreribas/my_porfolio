@@ -3,20 +3,15 @@
 	"NAVBAR_LINK2": "PROYECTOS",
 	"NAVBAR_LINK3": "SOBRE MI",
 	"NAVBAR_LINK4": "CONTACTO",
-
-	"PRESENTATION_POSITION": "Desarrollador front-end",
-	"PRESENTATION_DESCRIPTION_1": "Profesional del ",
-	"PRESENTATION_DESCRIPTION_2": "desarrollo front-end",
-	"PRESENTATION_DESCRIPTION_3": " con una sólida ",
-	"PRESENTATION_DESCRIPTION_4": "experiencia desde el año 2021",
-	"PRESENTATION_DESCRIPTION_5": "  en la creación de interfaces web atractivas y funcionales.",
-	"PRESENTATION_IMG_ALT_1": "Icono de LinkeIn",
+	"PRESENTATION_POSITION": "Arquitecto Frontend Senior",
+	"PRESENTATION_DESCRIPTION_1": "Profesional del desarrollo frontend con una sólida ",
+	"PRESENTATION_DESCRIPTION_2": "experiencia desde el año 2021",
+	"PRESENTATION_DESCRIPTION_3": " creando interfaces web atractivas y funcionales. Especializado en React, Tailwind y TypeScript.",
+	"PRESENTATION_IMG_ALT_1": "Icono de LinkedIn",
 	"PRESENTATION_IMG_ALT_2": "Icono de GitHub",
 	"PRESENTATION_IMG_ALT_3": "Icono de un currículum vitae",
 	"PRESENTATION_IMG_ALT_4": "Foto de perfil de Guifré Puig",
-
 	"EXPERIENCE_TITLE": "Experiencia",
-
 	"TECHNOLOGIES_TITLE": "Tecnologías",
 	"TECHNOLOGIES_IMG1_ALT": "Logo de React",
 	"TECHNOLOGIES_IMG2_ALT": "Logo de Next.js",
@@ -27,9 +22,6 @@
 	"TECHNOLOGIES_IMG7_ALT": "Logo de HTML",
 	"TECHNOLOGIES_IMG8_ALT": "Logo de Redux",
 	"TECHNOLOGIES_IMG9_ALT": "Logo de Git",
-
-	"PROJECTS_TITLE": "Últimos proyectos",
-
 	"ABOUT_TITLE": "Sobre mí",
 	"ABOUT_DESCRIPTION_1": "Soy Guifré, nacido en 1982 en Barcelona",
 	"ABOUT_DESCRIPTION_2": ", donde resido actualmente. En el año ",
@@ -46,5 +38,19 @@
 	"ABOUT_DESCRIPTION_13": ", tuve la oportunidad de adentrarme en el ",
 	"ABOUT_DESCRIPTION_14": "mundo profesional del desarrollo",
 	"ABOUT_DESCRIPTION_15": " de la mano de Brothapps, una empresa dedicada al desarrollo de aplicaciones informáticas. Allí, he crecido profesionalmente y ",
-	"ABOUT_DESCRIPTION_16": "he participado en proyectos que utilizan la metodología Agile, coordinándome con otros miembros del equipo de frontend, así como con los equipos de UI/UX y backend"
+	"ABOUT_DESCRIPTION_16": "he participado en proyectos que utilizan la metodología Agile, coordinándome con otros miembros del equipo de frontend, así como con los equipos de UI/UX y backend",
+	"PROJECTS_TITLE": "Últimos proyectos",
+	"PROJECTS_GO_TO_WEB": "Ir a la web",
+	"PROJECTS_CODE": "Código",
+	"PROJECTS_FRONTEND_CODE": "Código Frontend",
+	"PROJECTS_BACKEND_CODE": "Código Backend",
+	"PROJECTS_VIDEO_DEMO": "Video demo",
+	"PROJECTS_MORE_INFO": "Más info",
+	"PROJECTS_PRO_MATCH_DESC": "Actualmente desarrollando una web app MVP. Frontend construido con <strong>Angular 18 y Tailwind CSS</strong>, el backend utiliza Node.js, Express y Sequelize con MySQL. Permite crear y gestionar ligas de fútbol sala.",
+	"PROJECTS_GUIFRE_LINK_DESC": "Desarrollado un acortador de URLs web app. Construido con <strong>Next.js 14 y MongoDB</strong>. Esta primera versión permite crear y redireccionar URLs acortadas, además del seguimiento de clics.",
+	"PROJECTS_VICOBOOK_DESC": "Trabajado en el frontend de una web app para proyectos de escritura colaborativa en tiempo real. Desarrollado con <strong>Next.js 12 y Chakra UI</strong>, ofreciendo una interfaz fluida.",
+	"EXPERIENCE_PRESENT": "Actualidad",
+	"EXPERIENCE_DESCRIPTION_VUELING": "Desarrollo de aplicaciones de alto tráfico en un entorno empresarial.",
+	"EXPERIENCE_DESCRIPTION_BROTHAPPS": "Empresa de diseño y desarrollo de productos digitales.",
+	"FOOTER_RIGHTS": "Todos los derechos reservados."
 }

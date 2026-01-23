@@ -1,224 +1,71 @@
 ---
-import { string } from "astro/zod";
-
-const { currentLocale } = Astro;
-
-
-type Experiencies = {
-  title: string;
-  date: string;
-  description: string;
-  tasks: string[];
+interface Props {
+	company: string;
+	role?: string;
+	date: string;
+	description: string;
+	points: string[];
+	colorClass?: string;
+	icon?: string;
 }
 
-type ExperienciesByLanguage = {
-  es: Experiencies[];
-  ca: Experiencies[];
-  en: Experiencies[];
-}
+const {
+	company,
+	role = "Frontend Developer",
+	date,
+	description,
+	points,
+	colorClass = "bg-primary", // Default to primary yellow
+	icon = "laptop_mac",
+} = Astro.props;
 
-const experiencies: ExperienciesByLanguage = {
-  es: [
-    {
-        title: "Brothapps",
-        date: "(Febrero 2024 - octubre 2021)",
-        description: "Empresa de diseño y desarrollo de productos y soluciones digitales.",
-        tasks: [
-        "Participé en el equipo de creación y desarrollo del front-end de una web app de inicio a fin ayudando a su desarrollo y su mejora en sus iteraciones con Next.js.",
-        "Desarrollo y mantenimiento de diferentes interfaces de administración de productos digitales.",
-        "Integración de servicios de tercero en el front-end en diferentes proyectos de web apps así como Firebase Realtime DB, Firestone o Stripe entre otros.",
-        "Refactorización de código ya existente para hacerlo más escalable, mantenible y óptimo en rendimiento y legibilidad.",
-        "Desarrollo de landing pages con el framework Astro, aplicando buenas prácticas y metodología BEM.",
-        ],
-    },
-    {
-        title: "Focus",
-        date: "(Maig 2021 - junio 2018)",
-        description: "Empresa de servicios técnicos audiovisuales y productora de teatro.",
-        tasks: [
-        "Responsable del servicio técnico audiovisual del CaixaForum Barcelona",
-        "Encargado de la gestión del personal técnico y de la coordinación de los eventos y actividades del espacio.",
-        "Responsable de la comunicación con el cliente y de la resolución de sus necesidades técnicas.",
-        "Realización de los presupuestos y de la gestión de los recursos materiales y humanos.",
-        ],
-    },
-    ],
-    ca:[
-      {
-        title: "Brothapps",
-        date: "(Febrer 2024 - octubre 2021)",
-        description: "Empresa de disseny i desenvolupament de productes i solucions digitals.",
-        tasks: [
-        "Vaig participar en l'equip de creació i desenvolupament del front-end d'una web app de principi a fi ajudant al seu desenvolupament i la seva millora en les seves iteracions amb Next.js.",
-        "Desenvolupament i manteniment de diferents interfícies d'administració de productes digitals.",
-        "Integració de serveis de tercer en el front-end en diferents projectes de web apps així com Firebase Realtime DB, Firestone o Stripe entre d'altres.",
-        "Refactorització de codi ja existent per fer-lo més escalable, mantenible i òptim en rendiment i comprensible.",
-        "Desenvolupament de landing pages amb el framework Astro, aplicant bones pràctiques i metodologia BEM.",
-        ],
-      },
-      {
-        title: "Focus",
-        date: "(Maig 2021 - juny 2018)",
-        description: "Empresa de serveis tècnics audiovisuals i productora de teatre.",
-        tasks: [
-        "Responsable del servei tècnic audiovisual del CaixaForum Barcelona",
-        "Encarregat de la gestió del personal tècnic i de la coordinació dels esdeveniments i activitats de l'espai.",
-        "Responsable de la comunicació amb el client i de la resolució de les seves necessitats tècniques.",
-        "Realització dels pressupostos i de la gestió dels recursos materials i humans.",
-        ],
-      },
-    ],
-    en:[
-      {
-        title: "Brothapps",
-        date: "(February 2024 - October 2021)",
-        description: "Design and development company of digital products and solutions.",
-        tasks: [
-        "I participated in the creation and development team of the front-end of a web app from start to finish helping its development and its improvement in its iterations with Next.js.",
-        "Development and maintenance of different digital product administration interfaces.",
-        "Integration of third-party services in the front-end in different web app projects as well as Firebase Realtime DB, Firestone or Stripe among others.",
-        "Refactoring of existing code to make it more scalable, maintainable and optimal in performance and readability.",
-        "Development of landing pages with the Astro framework, applying good practices and BEM methodology.",
-        ],
-      },
-      {
-        title: "Focus",
-        date: "(May 2021 - June 2018)",
-        description: "Audiovisual technical services company and theater producer.",
-        tasks: [
-        "Technical Service Manager of CaixaForum Barcelona",
-        "In charge of managing the technical staff and coordinating the events and activities of the space.",
-        "Person in charge of customer communication and resolution of their technical needs.",
-        "Preparation of budgets and management of material and human resources.",
-        ],
-      },
-    ],
-  };
+// Map simple color names to tailwind classes if needed, or pass full classes.
+// For simplicity, we assume colorClass is a bg- class like 'bg-primary' or 'bg-blue-600'
+// And we need the specific text color for the title.
+// Let's derive a text class from it or just pass it text-primary as default.
+
+const titleColorClass =
+	colorClass === "bg-primary" ? "text-primary" : "text-blue-600"; // Simple toggle for now based on the two items
 ---
 
-<section>
-  <div>
-    {experiencies[currentLocale].map(
-      (experiencie: Experiencies) =>
-        <article class="relative mx-12 pb-12 grid before:absolute before:left-[-33px] before:block before:h-full before:border-l-2 before:border-gf-yellow/40 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
-
-
-            <div class="relative pb-12 md:col-span-2">
-             <span class="text-gf-yellow -left-[42px] absolute rounded-full text-5xl">&bull;</span>
-              <section>
-                <h4 class="text-2xl font-bold text-gf-yellow">{experiencie.title}</h4>
-                <p class="text-md text-gray-400 italic">{experiencie.date}</p>
-              </section>
-              <p class="text-sm text-gray-200">{experiencie.description}</p>
-            </div>
-
-            <ul class="relative list-disc flex flex-col gap-1 pb-4 md:col-span-3">
-              {experiencie.tasks.map((task) => <li>{task}</li> )}
-            </ul>
-        </article>
-    )}
-  </div>
-
-
-<!-- <style>
-  article {
-    /* margin: 32px 0; */
-    padding: 32px 16px;
-    display: grid;
-    grid-template-columns: 1fr 11fr;
-    position: relative;
-
-    > div:first-child {
-      width: 16px;
-      height: 100px;
-    }
-
-    > div:nth-child(2) {
-      height: 100%;
-      width: 1px;
-      background-color: var(--color-brown);
-      position: absolute;
-      left: 23px;
-
-      > div {
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        background-color: var(--color-brown);
-        border: 3px solid var(--color-blue);
-        position: absolute;
-        top: 42px;
-        left: -7px;
-      }
-    }
-  }
-
-  section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 16px 48px;
-
-    > div:first-child {
-      /* max-width: 260px; */
-      flex: 1 -1 260px;
-      margin-bottom: 8px;
-
-      > section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 16px;
-        padding: 0;
-
-        h4 {
-          color: var(--color-brown);
-          width: fit-content;
-        }
-
-        p {
-          display: block;
-          align-self: flex-end;
-          width: fit-content;
-          font-size: 0.75rem;
-          font-weight: 100;
-          padding-block: 4px;
-          opacity: 0.8;
-          font-style: italic;
-        }
-      }
-
-      > p {
-        font-size: 0.875rem;
-        font-weight: 100;
-        padding-block: 4px;
-      }
-    }
-
-    > div:nth-child(2) {
-      p {
-      }
-    }
-
-    ul {
-      flex: 1 1 500px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 0 8px;
-    }
-
-    li {
-      list-style: square;
-      position: relative;
-    }
-
-    /* li:before {
-      content: "•";
-      color: var(--color-brown);
-      /* position: absolute;
-      left: -1rem; */
-    /* }  */
-  }
-</style> -->
+<div
+	class='bg-card-light dark:bg-card-dark p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 relative hover:border-primary/50 transition-colors group'
+>
+	<div
+		class={`absolute top-6 left-0 w-1 h-12 ${colorClass} rounded-r-md group-hover:h-24 transition-all duration-300`}
+	>
+	</div>
+	<div class='pl-4'>
+		<div class='flex justify-between items-start mb-4'>
+			<div>
+				<h3 class={`text-2xl font-bold ${titleColorClass}`}>
+					{company}
+				</h3>
+				<p
+					class='text-sm text-gray-500 dark:text-gray-400 font-mono mt-1'
+				>
+					{date}
+				</p>
+				{
+					role && (
+						<p class='text-xs text-gray-400 dark:text-gray-500 font-mono mt-0.5'>
+							{role}
+						</p>
+					)
+				}
+			</div>
+			<span
+				class='material-icons-outlined text-gray-600 dark:text-gray-500'
+				>{icon}</span
+			>
+		</div>
+		<p class='text-sm text-gray-600 dark:text-gray-400 mb-4 italic'>
+			{description}
+		</p>
+		<ul
+			class='space-y-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside marker:text-primary'
+		>
+			{points.map((point) => <li>{point}</li>)}
+		</ul>
+	</div>
+</div>
